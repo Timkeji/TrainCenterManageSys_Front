@@ -17,8 +17,6 @@ function logout(){
             dataType:'json',
             //请求成功
             success : function(result) {
-
-
                 window.localStorage.setItem('yq_token', 0)
                 console.log(window.localStorage.getItem("yq_token"))
                 alert("注销成功！")
