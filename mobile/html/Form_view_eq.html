@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
-  <title>表单编号</title>
+  <title>仪器表单编号</title>
 
   <link rel="stylesheet" href="../layui/css/layui.css" media="all">
     <link rel="stylesheet" href="css/layui.css" media="all">
@@ -30,17 +30,16 @@
 </div>
 <!-- 审批 -->
 <div class="Approve_graph  layui-col-xs12">
-    <div class="picture_box">
+    <div class="picture_box"> 
          <div class="complete"></div>
-         <div class="lablinear"></div>
+         <div class="lablinear "></div>
+         <div class="labcircle  "></div>    
+         <div class=" lablinear"></div>
          <div class="labcircle  "></div>
-    
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
+         <div class=" lablinear "></div>
+         <div class="labcircle "></div>
+         <div class="lablinear"></div>
+         <div class="labcircle"></div>
     </div>
     <div class="people_box">
           <!-- <span>提交成功</span>
@@ -67,70 +66,15 @@
 <!-- <input type="text" name="" id="formdate" value="2020 年 10 月 11日 " disabled> -->
 <form action="">
     <table  border="1">
+        <tbody  id="forminformation" >
+          
+        </tbody>
         
-        <tr>
-            <td >借用部门</td>
-            <td colspan="3">2</td>      
-        </tr>
-        <tr>
-            <td >设备借用</td>
-            <td colspan="3">2</td>      
-        </tr>
-        <tr>
-            <td >使用时间</td>
-            <td colspan="3">2</td>      
-        </tr>
-        <tr>
-            <td >借用人</td>
-            <td >汤海</td> 
-            <td>电话</td>
-            <td>12345678911</td>     
-        </tr>
-        <tr>
-            <td colspan="4">设备清单</td>
-        </tr>
-        <tr>
-            <td>借用部门</td>
-            <td>型号</td>
-            <td>数量</td>
-            <td>附件</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+      
+        <tbody id="formtableinfo">
+
+        </tbody>
+       
     </table>
 </form>
 <div class="formtjdate">
@@ -143,6 +87,8 @@
   <script src="../layui/lay/modules/jquery.js"></script>
   <script src="../js/page_js/test.js"></script>
   <script src="../js/page_js/listfill.js"></script>
+  <script src="../js/jquery-1.12.3.js"></script>
+  <script src="../js/page_js/Form_view_eq.js"></script>
 </body>
 
 </html>

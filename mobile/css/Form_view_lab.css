@@ -171,12 +171,14 @@ margin-top: 29px;
       width: 20rem;
       text-align: left;
       float: left;
-      margin-left: 9rem;
+      margin-left: 8rem;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
  
   }
   form{
       width: 80%;
-      height: 494px;
+      height: 548px;
       margin: 0 auto;      
  
 
