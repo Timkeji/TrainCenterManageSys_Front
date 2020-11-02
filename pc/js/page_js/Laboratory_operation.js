@@ -1,3 +1,5 @@
+var SERVER_PATH = 'http://bread.varsion.cn/'
+
 layui.use('laypage', function() {
     var laypage = layui.laypage;
 
@@ -25,3 +27,76 @@ layui.use('laypage', function() {
         count: 50 //数据总数，从服务端得到
     });
 });
+
+$(document).ready(function() {
+    $.get(SERVER_PATH+'api/supadmin/getlaboperationrecords',function (data){
+            console.log(data)
+        if(data.code == 200){
+            var Str = ''
+            for ( var i = 0;i < data.data.length; i++){
+                Str += `
+                <tr class="am-text-center am-text-middle">
+                            <td class="am-text-center am-text-middle">20200915</td>
+                            <td class="am-text-center am-text-middle">汤海</td>
+                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
+                            <td class="am-text-center am-text-middle">
+                                <!-- 修改按钮 -->
+                                <!-- <button type="button" class="btn-look">修改</button> -->
+                                <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}">查看</button>
+                                <div class="am-modal am-modal-alert" tabindex="-1" id="movedalert">
+                                    <div class="am-modal-dialog am-mover" id="movedalert1">
+                                        <div class="am-modal-hd am-u-sm-centered ">查看</div>
+                                        <div class="am-modal-bd am-u-sm-centered am-bd-1">
+                                                <div class="am-g textam">
+                                                    <div class="am-u-sm-4 am-left ">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">表单编号</p>
+                                                    </div>
+                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">
+                                                            <input type="text" value="&nbsp;&nbsp;20200915" class="inputmovedd">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="am-g textam">
+                                                    <div class="am-u-sm-4 am-left">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">申请人</p>
+                                                    </div>
+                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">
+                                                            <input type="text" value="&nbsp;&nbsp;汤海" class="inputmovedd">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="am-g textam">
+                                                    <div class="am-u-sm-4 am-left ">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">完成时间</p>
+                                                    </div>
+                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
+                                                        <p class="am-text-center am-text-middle textp am-text-sm">
+                                                            <input type="text" value="&nbsp;&nbsp;2020-09-15 18:00:00" class="inputmovedd">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="am-modal-footer am-u-sm-centered">
+                                            <div class="am-modal-btn footbtn">查看</div>
+                                            <div class="am-modal-btn footbtn">取消</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="but-use">导出</button>
+                            </td>
+                        </tr>
+                `;
+            }
+            $('#table_list').empty();
+            $('#table_list').append(Str);
+
+            //总页数
+            objNumService = data.data.total;
+
+        }
+    })
+
+
+})

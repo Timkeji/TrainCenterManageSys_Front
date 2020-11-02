@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验室仪器设备借用</title>
+    <style>
+        body {
+            height: 100%;
+        }
+        
+        table {
+            width: 1000px;
+            height: 1300px;
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+            font-size: 20px;
+            font-family: SimSun;
+            font-weight: bold;
+
+        }
+        
+        span {
+            margin-left: 20px;
+        }
+        
+        tr {
+            width: 25%;
+        }
+        
+        td {
+            width: 25%;
+            width: 200px;
+        }
+        
+        input[type="date"] {
+            width: 170px;
+            margin-top: 20px;
+        }
+        .asd td{
+            width: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+
+        <table border="1">
+            <tr>
+                <th colspan="5">2019年实验室仪器设备借用单</th>
+
+
+            </tr>
+            <tr>
+                <td>借用部门</td>
+                <td colspan="4" id="department"></td>
+
+            </tr>
+            <tr>
+                <td>借用设备用途</td>
+                <td colspan="4" id=""></td>
+            </tr>
+
+            <tr>
+                <td>借用申请时间</td>
+                <td colspan="4"><span id="start_time">2021年12月20日</span><span >至</span><span id="expect_time">2021年12月20日</span>
+                </td>
+
+            </tr>
+            <tr>
+                <td rowspan="1">借用人</td>
+                <td id="borrow_name"></td>
+                <td >电话</td>
+                <td colspan="2" id="phone"></td>
+            </tr>
+
+            <tr>
+                <td style="border: none; position: absolute;top: 380px; writing-mode: tb-lr;">借用设备清单</td>
+                <td>设备名称</td>
+                <td>设备型号</td>
+                <td>数量</td>
+                <td>附件</td>
+            </tr>
+
+            <tr class="asd">
+<!--                <td rowspan="1"></td>-->
+<!--                <td ></td>-->
+<!--                <td ></td>-->
+<!--                <td ></td>-->
+<!--                <td ></td>-->
+
+            </tr>
+
+
+            <tr class="asd">
+
+
+            </tr>
+            <tr class="asd">
+
+
+            </tr>
+            <tr class="asd">
+
+
+            </tr>
+            <tr class="asd">
+
+
+            </tr>
+            <tr class="asd">
+
+
+            </tr>
+            <tr class="asd">
+
+
+            </tr>
+
+
+            <tr>
+                <td>借用部门负责人签字</td>
+                <td colspan="4">汤海</td>
+            </tr>
+            <tr>
+                <td>实验室借用管理员签字</td>
+                <td colspan="4">汤海</td>
+            </tr>
+            <tr>
+                <td>实验中心主任签字</td>
+                <td colspan="4">汤海</td>
+            </tr>
+            <tr>
+                <td>设备管理员出库签字</td>
+                <td>汤海</td>
+                <td>借用出库签字</td>
+                <td colspan="2">汤海</td>
+            </tr>
+            <tr>
+                <td rowspan="2">归还记录</td>
+                <td colspan="4" rowspan="2" style="text-align: left;">
+                    <p>归还日期：2020年12月13日</p> <br>
+                    <p> 验收：</p><br>
+                    <p>通过/不通过（原因）：</p> <br>
+                    <p> 验收人签字： </p> <br>
+                    <p> 归还人签字：</p>
+                </td>
+
+            </tr>
+        </table>
+
+    </form>
+</body>
+<script src="../js/jquery-2.0.0.min.js"></script>
+<script src="../js/form2_show.js"></script>
+</html>
