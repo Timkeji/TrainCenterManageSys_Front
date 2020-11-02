@@ -17,7 +17,6 @@ $(function(){
      $(".no_ok_btn").click(function(){
          if($("#suggest").val() ==""){
              alert("审批意见为空噢~~~请输入")
-             
          }
          else{
              $(".pop").hide()
@@ -25,24 +24,21 @@ $(function(){
          }
         app_status=2
     })
-    
 
  // 点击“审批通过”按钮：蒙版+审批意见 显现
- $(".ok_app").click(function(){
+    $(".ok_app").click(function(){
     $(".pop").show()
     $("#ok_dialog").show()
-})
-
+    })
 
   // ”审批通过“弹出框:点击“确定”按钮
   $(".ok_btn").click(function(){
    $(".pop").hide()
    $("#ok_dialog").hide()
    app_status =1
-   
+    })
 })
 
-
-
+$(document).ready(function (){
 
 })
