@@ -1,12 +1,23 @@
+var SERVER_PATH = 'http://bread.varsion.cn/'
+
+/**
+ * 模糊查询
+ * @param [
+ *	'code':钉钉code
+ *  'data':表单编号 || 申请人
+ *  ]
+ */
 function select(){
     var data = $('.seacher_input').val();
+    $('.seacher_input').val("");
+    $('.seacher_select').val("0");
     if(data == ""){
         alert("输入不能为空")
         return;
     }
     $.ajax({
         type: "GET",
-        url:"http://bread.varsion.cn/api/approval/select?code=xxxx&data=121" ,
+        url:"http://bread.varsion.cn/api/approval/select?code=xxxx&data=123",
         // url:"http://bread.varsion.cn/api/approval/select?code=" + code + "&data=" + data,
         success:function (data) {
             console.log(data);
@@ -19,17 +30,17 @@ function select(){
                     <td>${data.data[i].applicant_name}</td>
                     `;
                     if(data.data[i].type_name == "实验室借用申请表单"){
-                        str += `<td class="btn"><a href="../html/approval_labLoan.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labInstr.html?${data.data[i].form_id}" class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "实验室仪器设备借用单"){
-                        str += `<td class="btn"><a href="../html/approval_labInstr.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labLoan.html?${data.data[i].form_id}"class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "开放实验室使用申请单"){
-                        str += `<td class="btn"><a href="../html/approval_labOpen.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a  href="approval_labOpen.html?${data.data[i].form_id}" class="app_lk_btn">查看</a></td>
                   </tr>`
                     }
                 }
-                $('#form_approval').empty().append(str);
+                $('.form_approval').empty().append(str);
             }
             if (data.code === 100) {
                 console.log(data.msg);
@@ -40,22 +51,30 @@ function select(){
     })
 }
 
+/**
+ * 分类查询
+ * @param [
+ *	'code':钉钉code
+ *  'type_id':表单种类
+ *  ]
+ */
 $('.seacher_select').change(function (){
     var type_id = $('.seacher_select').val();
+    $('.seacher_input').val("");
     var type_name="";
     console.log(type_id);
     switch (type_id){
         case "0":
-            window.location.href="../html/approval_no.html";
+            window.location.reload();
             return;
         case "1":
-            type_name="实验室借用申请表";
+            type_name="实验室借用申请表单";
             break;
         case "2":
-            type_name="开放实验室使用申请表";
+            type_name="开放实验室使用申请单";
             break;
         case "3":
-            type_name="实验室仪器借用表";
+            type_name="实验室仪器设备借用单";
             break;
     }
     console.log(type_name);
@@ -74,17 +93,17 @@ $('.seacher_select').change(function (){
                     <td>${data.data[i].applicant_name}</td>
                     `;
                     if(data.data[i].type_name == "实验室借用申请表单"){
-                        str += `<td class="btn"><a href="../html/approval_labLoan.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labLoan.html?${data.data[i].form_id}" class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "实验室仪器设备借用单"){
-                        str += `<td class="btn"><a href="../html/approval_labInstr.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labInstr.html?${data.data[i].form_id}"class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "开放实验室使用申请单"){
-                        str += `<td class="btn"><a href="../html/approval_labOpen.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a  href="approval_labOpen.html?${data.data[i].form_id}" class="app_lk_btn">查看</a></td>
                   </tr>`
                     }
                 }
-                $('#form_approval').empty().append(str);
+                $('.form_approval').empty().append(str);
             }
             if (data.code === 100) {
                 console.log(data.msg);
@@ -95,7 +114,14 @@ $('.seacher_select').change(function (){
     })
 });
 
+/**
+ * 表单展示
+ * @param [
+ *	'code':钉钉code
+ *  ]
+ */
 $(document).ready(function (){
+
     $.ajax({
         type:"GET",
         url:"http://bread.varsion.cn/api/approval/show?code=xxx",
@@ -111,17 +137,18 @@ $(document).ready(function (){
                     <td>${data.data[i].applicant_name}</td>
                     `;
                     if(data.data[i].type_name == "实验室借用申请表单"){
-                        str += `<td class="btn"><a href="../html/approval_labLoan.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labLoan.html?${data.data[i].form_id}" class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "实验室仪器设备借用单"){
-                        str += `<td class="btn"><a href="../html/approval_labInstr.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a href="approval_labInstr.html?${data.data[i].form_id}"class="app_lk_btn"">查看</a></td>
                   </tr>`
                     }else if(data.data[i].type_name == "开放实验室使用申请单"){
-                        str += `<td class="btn"><a href="../html/approval_labOpen.html" class="app_lk_btn" onclick="">查看</a></td>
+                        str += `<td class="btn"><a  href="approval_labOpen.html?${data.data[i].form_id}" class="app_lk_btn">查看</a></td>
                   </tr>`
                     }
                 }
-                $('#form_approval').empty().append(str);
+                $('.form_approval').empty();
+                $('.form_approval').append(str);
             }
             if (data.code === 100) {
                 console.log(data.msg);
@@ -131,3 +158,4 @@ $(document).ready(function (){
         }
     })
 })
+
