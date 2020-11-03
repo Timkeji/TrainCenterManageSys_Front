@@ -11,10 +11,26 @@ function  jujement (a,b){
     $(".labcircle").eq(status - b).addClass("not_completed");
 
 }
+
+    //解析参数
+    var url=location.search;
+    var formid;
+    var Request = new Object();
+    if(url.indexOf("?")!=-1)
+    {
+    var str = url.substr(1);
+    strs= str.split("&");
+    for(var i=0;i<strs.length;i++)
+    {
+    Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+    }
+    }
+    formid= Request["formid"];
     var SERVER_PATH = 'http://bread.varsion.cn/'
-    var a = "C2010284621";
-    var b = "A2011024937"
-    console.log(a)
+
+    // var a = "C2010284621";
+    // var b = "A2011024937"
+    // console.log(a)
 
 
 
@@ -23,7 +39,7 @@ function  jujement (a,b){
     $.ajax({
         type: "get",
         url: SERVER_PATH + "/api/fill/seeview",
-        data: { form_id: a },// 将json数据转化为字符串
+        data: { form_id:  formid },// 将json数据转化为字符串
         success: function (data) {
             console.log(data)
             //成功函数回显
@@ -82,7 +98,7 @@ function  jujement (a,b){
                 //  console.log("123")
                 // }
                 //流程图判断
-                status =4
+                status =data.data.form_status
                 console.log(status)
 
                 if (status == 3) {
@@ -106,7 +122,7 @@ function  jujement (a,b){
                 }
                 else if (status == 1) {
 
-                    for (let i = 0; i < status - 1; i++) {
+                    for (let i = 0; i < status ; i++) {
 
 
                         $(".lablinear").eq(i).addClass("app_pass");
@@ -126,10 +142,8 @@ function  jujement (a,b){
 
                     }
                 }
-                else if(status==6){
-                    
+                else if(status==6){    
                     jujement(3,4)
-
 
                 }
                 else if(status==7){
@@ -144,34 +158,7 @@ function  jujement (a,b){
                     jujement(4,5)
                 }
 
-                // if(status%2!==0){
-
-                //     for (let i = 0; i < status; i++) {
-
-                //         $(".lablinear").eq(i-1).addClass("app_pass");
-                //         $(".labcircle").eq(i-1).addClass("app_pass");
-
-
-                //     }}
-
-                // }else {
-                //     for (let i = 0; i < status; i++) {
-
-                //         $(".lablinear").eq(i-1).addClass("app_pass");
-                //         $(".labcircle").eq(i-1).addClass("app_pass");
-
-
-                //     }
-                //     $(".lablinear").eq(status-1).addClass("not_completed");
-                //     $(".labcircle").eq(status-1).addClass("not_completed");
-                // }
-
-
-
-
-
-
-
+       
             } else {
                 console.log(data)
                 alert("提交失败")
@@ -182,9 +169,7 @@ function  jujement (a,b){
 
         },
         error: function (data) {
-            // console.log(XMLHttpRequest.status);
-            // console.log(XMLHttpRequest.readyState);
-            // console.log(textStatus);
+    
             console.log(data)
         }
     })

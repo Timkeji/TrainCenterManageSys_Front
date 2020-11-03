@@ -1,21 +1,47 @@
 window.onload=function(){
 
     var SERVER_PATH = 'http://bread.varsion.cn/'
-    var a="C2010283959";
-    var b="A2011024937"
-    console.log(a)
+    // var a="C2010283959";
+    // var b="A2011024937"
+    // console.log(a)
+    function  jujement (a,b){
+    
+        for (let i = 0; i <status - a; i++) {
+            $(".lablinear").eq(i).addClass("app_pass");
+            $(".labcircle").eq(i).addClass("app_pass");
+        }
+        $(".lablinear").eq(status - b).removeClass("app_pass");
+        $(".labcircle").eq(status - b).removeClass("app_pass");
+        $(".lablinear").eq(status - b).addClass("not_completed");
+        $(".labcircle").eq(status - b).addClass("not_completed");
+    
+    }
+      //解析参数
+      var url=location.search;
+      var formid;
+      var Request = new Object();
+      if(url.indexOf("?")!=-1)
+      {
+      var str = url.substr(1);
+      strs= str.split("&");
+      for(var i=0;i<strs.length;i++)
+      {
+      Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+      }
+      }
+      formid= Request["formid"];
     
     //    页面初始化
+
 
         $.ajax({
             type: "get",
             url : SERVER_PATH+"/api/fill/viewlabborrow",
-            data: {form_id:b},// 将json数据转化为字符串
+            data: {form_id:formid},// 将json数据转化为字符串
             success: function (data) {
               
                 if(data.code==200){
-                    // alert("提交成功")
-                    // $("#forminformation")
+             
                var date=`${data.data[0].created_at}`;
                $(".formdate").append( date)
 
@@ -66,6 +92,57 @@ window.onload=function(){
             </tr>`;
                 $("#forminfo").append( strhead)
 
+        //流程图判断
+        status =data.data[0].status_id
+        console.log(status)
+
+        if (status == 3) {
+            for (let i = 0; i < status - 1; i++) {
+
+                $(".lablinear").eq(i).addClass("app_pass");
+                $(".labcircle").eq(i).addClass("app_pass");
+
+            }
+        }
+        else if (status ==2) {
+         
+            for (let i = 0; i <status - 1; i++) {
+
+                $(".lablinear").eq(status-2 ).addClass("not_completed");
+                $(".labcircle").eq(status-2 ).addClass("not_completed");
+
+
+            }
+
+        }
+        else if (status == 1) {
+
+            for (let i = 0; i < status ; i++) {
+
+
+                $(".lablinear").eq(i).addClass("app_pass");
+                $(".labcircle").eq(i).addClass("app_pass");
+
+            }
+
+        }
+        else if (status==4) {
+        
+            jujement(2,3)
+        }else if(status==5) {
+            for (let i = 0; i < status - 2; i++) {
+
+                $(".lablinear").eq(i).addClass("app_pass");
+                $(".labcircle").eq(i).addClass("app_pass");
+
+            }
+        }
+        else if(status==6){    
+            jujement(3,4)
+
+        }
+        //判断结束
+     
 
 
                     
@@ -79,9 +156,7 @@ window.onload=function(){
           
             },
             error: function (data) {
-                // console.log(XMLHttpRequest.status);
-                // console.log(XMLHttpRequest.readyState);
-                // console.log(textStatus);
+    
                 console.log(data)
             }
         })

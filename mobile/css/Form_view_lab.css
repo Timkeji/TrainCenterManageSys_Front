@@ -133,13 +133,14 @@ html {
   .complete,.lablinear,.labcircle{
     width: 10px;
     height: 10px;
-    background: #0088fe;
+
     border: 0px solid #0088fe;
     margin-top: 25px;
     border-radius: 25px;
   }
   .complete{
       margin-left: 15px;
+      background: #0088fe;
   }
   .lablinear{
     width: 65px;
@@ -147,9 +148,12 @@ height: 3px;
 margin-top: 29px;
 
   }
-  /* .not_completed {
+  .not_completed {
       background:red;
-  } */
+  }
+  .app_pass{
+    background: #0088fe;
+  }
   .people_box>p{
     width: 60px;
     font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
