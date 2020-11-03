@@ -32,7 +32,7 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
             url : SERVER_PATH+"api/test/test",
             data : {token:userToken},
             dataType:'json',
-            success : function(result) {
+            success : function(data) {
             },
             error : function(e){
             }
@@ -45,4 +45,20 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
 ```
 
 ## 关于 code
+
+需要详细注释每个交互的功能和请求接口以及参数，方便我们后期统一管理
+
+```javascript
+/**
+ *
+ * @api api/test/test
+ * @param [
+ *	'code':钉钉code
+ *      'form_id':表单编号
+ *  ]
+ */
+$.get(SERVER_PATH+"api/test/test",function() {
+          
+ })
+```
 

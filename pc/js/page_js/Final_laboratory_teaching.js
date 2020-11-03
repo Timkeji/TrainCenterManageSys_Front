@@ -73,16 +73,16 @@ function select(){
         url: SERVER_PATH + "api/supadmin/tearecordselect",
         data: {form_id: a},
         dataType: 'json',
-        success: function (result) {
-            console.log(result.data)
+        success: function (data) {
+            console.log(data.data)
             if (result.code == 200) {
                 let Str = '';
                 for (var i = 0; i < result.data.data.length;i++){
                     Str += `
                     <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">${result.data.data[i].form_id}</td>
-                            <td class="am-text-center am-text-middle">${result.data.data[i].applicant_name}</td>
-                            <td class="am-text-center am-text-middle">${result.data.data[i].created_at}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
                             <td class="am-text-center am-text-middle">
                                 <!-- 修改按钮 -->
                                 <!-- <button type="button" class="btn-look">修改</button> -->
