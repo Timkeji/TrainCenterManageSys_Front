@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f2e44fa-e506-4cd4-8040-29f6008f4140" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mobile/css/record_check.css" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/css/record_check.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/html/Form_view_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/html/Form_view_final.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/html/list_forms.html" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/html/list_forms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/html/record_check.html" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/html/record_check.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/js/page_js/Form_view_final.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/js/page_js/Form_view_final.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/js/page_js/record_check.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/js/page_js/record_check.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jiAcHNaGHVHsvbcydwsnUCSFKw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/TrainCenterManageSys" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f2e44fa-e506-4cd4-8040-29f6008f4140" name="Default Changelist" comment="" />
+      <created>1604276617678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604276617678</updated>
+      <workItem from="1604276619419" duration="1320000" />
+      <workItem from="1604278752608" duration="28470000" />
+      <workItem from="1604362757584" duration="26202000" />
+      <workItem from="1604448764119" duration="2716000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="57" width="1089" height="623" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604285220750">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="57" width="1089" height="623" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-1920.12.1920.1040@0.0.1280.680" timestamp="1604285220750" />
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604451275676">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-1920.12.1920.1040@0.0.1280.680" timestamp="1604451275676" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604402747292">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.12.1920.1040@0.0.1280.680" timestamp="1604402747292" />
+    <state x="411" y="42" key="RollbackChangesDialog" timestamp="1604402467638">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="411" y="42" key="RollbackChangesDialog/0.0.1280.680/-1920.12.1920.1040@0.0.1280.680" timestamp="1604402467638" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1604299085703">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680/-1920.12.1920.1040@0.0.1280.680" timestamp="1604299085703" />
+  </component>
+</project>

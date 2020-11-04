@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
-    <title>期末检查</title>
+    <title>实验室运行记录</title>
 
     <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="css/layui.css" media="all">
+<!--    <link rel="stylesheet" href="css/layui.css" media="all">-->
     <link rel="stylesheet" href="../css/Lab_operation_records.css" media="all">
 </head>
 
@@ -19,7 +19,7 @@
     <!-- 头部：标题+返回键 -->
     <div class="app_header">
         <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
-        <a href="#" class="title">期末表单编号</a>
+        <a href="#" class="title">实验室运行记录编号</a>
     </div>
     <!-- 按钮：审批+历史 -->
     <div class="app_middle">
@@ -31,27 +31,27 @@
     <!-- 主体部分 -->
     <div class="contant ">
 
-        <p class="formheader">期末教学记录检查</p>
+        <p class="formheader">实验室运行记录表</p>
+
         <!-- <input type="text" name="" id="formdate" value="2020 年 10 月 11日 " disabled> -->
         <div class="detailed_page">
-
-            <form action="">
-                <input type="text" name="" id="" disabled value="周次" readonly>
-                <input type="text" name="" id="" disabled value="24周">
-                <input type="text" name="" id="" disabled value="专业班级">
-                <input type="text" name="" id="" disabled value="信息工程18203">     
-                <input type="text" name="" id="" disabled value="学生姓名">
-                <input type="text" name="" id="" disabled value="xxx">
-                <input type="text" name="" id="" disabled value="人数">
-                <input type="text" name="" id="" disabled value="23">
-                <input type="text" name="" id="" disabled value="课程名称/实验项目">
-                <input type="text" name="" id="" disabled value="xxxx">
-                <input type="text" name="" id="" disabled value="任课教师">
-                <input type="text" name="" id="" disabled value="xxx">
-                <input type="text" name="" id="" disabled value="设备运行情况">
-                <input type="text" name="" id="" disabled value="优">
-                <input type="text" name="" id="" disabled value="备注">
-                <input type="text" name="" id="" disabled value="无">
+            <form action="" id="lab_form">
+                <input type="text" name=""  disabled value="周次" readonly>
+                <input type="text" name=""  disabled value="24周" readonly>
+                <input type="text" name=""  disabled value="专业班级" readonly>
+                <input type="text" name=""  disabled value="信息工程18203" readonly>
+                <input type="text" name=""  disabled value="学生姓名" readonly>
+                <input type="text" name=""  disabled value="xxx" readonly>
+                <input type="text" name=""  disabled value="人数" readonly>
+                <input type="text" name=""  disabled value="23" readonly>
+                <input type="text" name=""  disabled value="课程名称/实验项目" readonly>
+                <input type="text" name=""  disabled value="xxxx" readonly>
+                <input type="text" name=""  disabled value="任课教师" readonly>
+                <input type="text" name=""  disabled value="xxx" readonly>
+                <input type="text" name=""  disabled value="设备运行情况" readonly>
+                <input type="text" name=""  disabled value="优" readonly>
+                <input type="text" name=""  disabled value="备注" readonly>
+                <input type="text" name=""  disabled value="无" readonly>
             </form>
         </div>
         <div class="formtjdate">
@@ -62,6 +62,7 @@
 
 
     <!-- js的引用 -->
+    <script src="../js/jquery-1.12.3(1).js"></script>
     <script src="../layui/layui.all.js"></script>
     <script src="../layui/lay/modules/jquery.js"></script>
     <script src="../js/page_js/listfill.js"></script>
