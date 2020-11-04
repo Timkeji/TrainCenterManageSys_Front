@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
@@ -23,15 +23,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
-
+     <link rel="stylesheet" href="../css/layui.css">
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
     <meta name="msapplication-TileColor" content="#0e90d2">
-    <link rel="stylesheet" href="../css/layui.css">
+<!--     <link rel="stylesheet" href="../css/layui.css">-->
     <link rel="stylesheet" href="../assets/css/amazeui.min.css">
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../css/iconfont.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
+
     <link rel="stylesheet" href="../css/Laboratory_Loan_Application.css">
 </head>
 
@@ -45,7 +46,7 @@
             <img src="../images/logo.png">
         </div>
 
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+      
 
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
@@ -103,24 +104,40 @@
                 <!-- 按钮和搜索 -->
                 <div class="am-g am-margin am-u-sm-centered am-wid">
                     <div class="am-u-lg-6 am-u-sm-6 ">
-                    </div>
-                    <div class="am-u-lg-6 am-u-sm-6">
-                        <div class="am-show-md-down down-left">
-                            <div class="input_ser">
-                                <input type="text" name="sear_input">
-                                <i class="iconfont icon-sousuo"></i>
+                        <div class="am-show-md-down am-fl" onchange="selectchange()" >
+                            <div class="seinpt">
+                                <select  >
+                                    <option>&nbsp;xxx实验室</option>
+                                    <option>&nbsp;xxx实验室</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="am-hide-md-down am-fl" onchange="selectchange()">
+                            <div class="seinpt" >
+                                <select>
+                                    <option>&nbsp;xxx实验室</option>
+                                    <option>&nbsp;xxx实验室</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-lg-6 am-u-sm-6">
+
+
+                                <div class="am-show-md-down down-left">
+                                    <div class="input_ser">
+                                        <input type="text" name="sear_input">
+                                        <i class="iconfont icon-sousuo"></i>
+                                    </div>
+                                </div>
                         <div class="am-hide-md-down down-left">
                             <div class="input_ser">
                                 <input type="text" name="name" id="name" value="">
                                 <i class="iconfont icon-sousuo" onclick="select(name)"></i>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-            </div>
+                            </div>
+                        </div>
 
             <!-- 表格 -->
             <div class="am-scrollable-horizontal am-u-sm-centered">
@@ -183,7 +200,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="but-use">删除</button>
+                                <button type="button" class="but-use">导出</button>
                             </td>
                         </tr>
                         <tr class="am-text-center am-text-middle">
@@ -258,6 +275,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
         <span class="am-icon-btn am-icon-th-list"></span>
@@ -271,9 +289,9 @@
     <script src="../js/Check_login.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../js/echarts.min.js"></script>
-    <script src="../js/layui.all.js"></script>
+   <script src="../js/layui.all.js"></script>
     <script src="../js/page_js/Laboratory_operation.js"></script>
-
+>
 </body>
 
 </html>
