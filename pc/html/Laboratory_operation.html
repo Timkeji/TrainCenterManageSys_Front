@@ -105,6 +105,7 @@
                     <div class="am-u-lg-6 am-u-sm-6 ">
                         <div class="am-show-md-down am-fl">
                             <div class="seinpt">
+
                                 <select >
                                     <option>&nbsp;xxx实验室</option>
                                     <option>&nbsp;xxx实验室</option>
@@ -112,10 +113,11 @@
                             </div>
                         </div>
                         <div class="am-hide-md-down am-fl">
-                            <div class="seinpt">
-                                <select>
-                                    <option>&nbsp;xxx实验室</option>
-                                    <option>&nbsp;xxx实验室</option>
+                            <div class="seinpt" id="choose1">
+                                <select  onchange="xialakuangliandong()">
+                                    <option value="">--请选择--</option>
+                                    <option value="">&nbsp;xxx实验室</option>
+                                    <option value="">&nbsp;xxx实验室</option>
                                 </select>
                             </div>
                         </div>
@@ -132,7 +134,7 @@
                         <div class="am-hide-md-down down-left">
                             <div class="input_ser">
                                 <input type="text" name="name" id="name" value="">
-                                <i class="iconfont icon-sousuo" onclick="select(name)"></i>
+                                <i class="iconfont icon-sousuo" onclick="select3()"></i>
                             </div>
                         </div>
                             </div>
@@ -144,7 +146,6 @@
                     <thead>
                         <tr class="am-text-center am-text-middle">
                             <th class="am-text-center am-text-middle">表单编号</th>
-                            <th class="am-text-center am-text-middle">申请人</th>
                             <th class="am-text-center am-text-middle">完成时间</th>
                             <th class="am-text-center am-text-middle">操作</th>
                         </tr>
@@ -157,48 +158,8 @@
                             <td class="am-text-center am-text-middle">
                                 <!-- 修改按钮 -->
                                 <!-- <button type="button" class="btn-look">修改</button> -->
-                                <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}">查看</button>
-                                <div class="am-modal am-modal-alert" tabindex="-1" id="movedalert">
-                                    <div class="am-modal-dialog am-mover" id="movedalert1">
-                                        <div class="am-modal-hd am-u-sm-centered ">查看</div>
-                                        <div class="am-modal-bd am-u-sm-centered am-bd-1">
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">表单编号</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;20200915" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">申请人</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;汤海" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">完成时间</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;2020-09-15 18:00:00" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <div class="am-modal-footer am-u-sm-centered">
-                                            <div class="am-modal-btn footbtn">查看</div>
-                                            <div class="am-modal-btn footbtn">取消</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn-look" id="btn-look1">查看</button>
+
                                 <button type="button" class="but-use">导出</button>
                             </td>
                         </tr>
@@ -279,6 +240,7 @@
     <a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
         <span class="am-icon-btn am-icon-th-list"></span>
     </a>
+
 
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script src="../assets/js/jquery.min.js"></script>
