@@ -1,4 +1,4 @@
-// import {log} from "../../../mobile/js/dingtalk-jsapi/lib/log";
+
 
 var SERVER_PATH = 'http://bread.varsion.cn/'
 var url=location.search;
