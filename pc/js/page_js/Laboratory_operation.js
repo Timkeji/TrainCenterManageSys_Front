@@ -1,89 +1,73 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
-layui.use('laypage', function() {
-    var laypage = layui.laypage;
+// layui.use('laypage', function() {
+//     var laypage = layui.laypage;
+//
+//     //执行一个laypage实例
+//     laypage.render({
+//         elem: 'laypagation',
+//         url: '/demo/table/user/',
+//         curr: 1 //设定初始在第 5 页
+//             ,
+//         limit: 8,
+//         page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+//             layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
+//                 ,
+//
+//             groups: 1 //只显示 1 个连续页码
+//                 ,
+//             count: 10,
+//             theme: '#1E9FFF',
+//             first: false //不显示首页
+//                 ,
+//             last: false //不显示尾页
+//
+//         }, //注意，这里的 test1 是 ID，不用加 # 号
+//
+//         count: 50 //数据总数，从服务端得到
+//     });
+// });
 
-    //执行一个laypage实例
-    laypage.render({
-        elem: 'laypagation',
-        url: '/demo/table/user/',
-        curr: 1 //设定初始在第 5 页
-            ,
-        limit: 8,
-        page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
-                ,
-
-            groups: 1 //只显示 1 个连续页码
-                ,
-            count: 10,
-            theme: '#1E9FFF',
-            first: false //不显示首页
-                ,
-            last: false //不显示尾页
-
-        }, //注意，这里的 test1 是 ID，不用加 # 号
-
-        count: 50 //数据总数，从服务端得到
-    });
-});
-
+//下拉框渲染
 $(document).ready(function() {
-    $.get(SERVER_PATH+'api/supadmin/getlaboperationrecords',function (data){
-            console.log(data)
+    $.get(SERVER_PATH+'api/supadmin/getlab',function (data){
+        console.log(data)
+        let Str = ''
         if(data.code == 200){
+
+                Str = `
+                 <select id="choose" onchange="xialakuangliandong()">
+                        <option value="null">--请选择--</option>
+                        `
+
+                    for (var i = 0;i < data.data.length; i++){
+                        Str += ` <option value="${data.data[i]}">${data.data[i]}</option>`
+                    }
+                Str +=`</select>`
+
+            $('#choose1').empty();
+            $('#choose1').append(Str);
+        }
+        if (data.code == 100){
+            alert('下拉框获取失败')
+        }
+
+    })
+
+
+//页面渲染
+    $.get(SERVER_PATH+'api/supadmin/getlaballinfo',function (data){
+
+            console.log(data)
             var Str = ''
-            for ( var i = 0;i < data.data.length; i++){
+            for ( var i = 0;i < data.result.data.length; i++){
                 Str += `
                 <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
+                            <td class="am-text-center am-text-middle">${data.result.data[i].group}</td>
+                            <td class="am-text-center am-text-middle">${data.result.data[i].created_at}</td>
                             <td class="am-text-center am-text-middle">
-                                <!-- 修改按钮 -->
-                                <!-- <button type="button" class="btn-look">修改</button> -->
-                                <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}">查看</button>
-                                <div class="am-modal am-modal-alert" tabindex="-1" id="movedalert">
-                                    <div class="am-modal-dialog am-mover" id="movedalert1">
-                                        <div class="am-modal-hd am-u-sm-centered ">查看</div>
-                                        <div class="am-modal-bd am-u-sm-centered am-bd-1">
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">表单编号</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;20200915" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">申请人</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;汤海" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="am-g textam">
-                                                    <div class="am-u-sm-4 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">完成时间</p>
-                                                    </div>
-                                                    <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                                                        <p class="am-text-center am-text-middle textp am-text-sm">
-                                                            <input type="text" value="&nbsp;&nbsp;2020-09-15 18:00:00" class="inputmovedd">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <div class="am-modal-footer am-u-sm-centered">
-                                            <div class="am-modal-btn footbtn">查看</div>
-                                            <div class="am-modal-btn footbtn">取消</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+                                <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)">查看</button>
                                 <button type="button" class="but-use">导出</button>
                             </td>
                         </tr>
@@ -93,10 +77,89 @@ $(document).ready(function() {
             $('#table_list').append(Str);
 
             //总页数
-            objNumService = data.data.total;
+            objNumService = data.result.total;
 
-        }
+
     })
 
 
 })
+
+//下拉联动
+function xialakuangliandong() {
+    var type = $("#choose option:selected");
+    var lab_name = type.val();
+    console.log(lab_name);
+    $.get(SERVER_PATH+'api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
+
+        console.log(data)
+        var Str = ''
+        for ( var i = 0;i < data.result.data.length; i++){
+            Str += `
+                <tr class="am-text-center am-text-middle">
+                            <td class="am-text-center am-text-middle">${data.result.data[i].group}</td>
+                            <td class="am-text-center am-text-middle">${data.result.data[i].created_at}</td>
+                            <td class="am-text-center am-text-middle">
+                                
+                                <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)" >查看</button>
+                                <button type="button" class="but-use">导出</button>
+                            </td>
+                        </tr>
+                `;
+        }
+        $('#table_list').empty();
+        $('#table_list').append(Str);
+
+        //总页数
+        objNumService = data.result.total;
+
+
+    })
+
+}
+
+//搜索
+function select3(){
+    var a = document.getElementById('name').value
+    console.log(a)
+    $.ajax({
+        type: "GET",
+        cache: false,
+        //contentType: "application/json;charset=UTF-8",
+        url: SERVER_PATH + "api/supadmin/select",
+        data: {num: a},
+        dataType: 'json',
+        success:function (data){
+            if(data.code == 200){
+                console.log(data)
+                let Str = ''
+                    Str += `
+                <tr class="am-text-center am-text-middle">
+                            <td class="am-text-center am-text-middle">${data.data.group}</td>
+                            <td class="am-text-center am-text-middle">${data.data.created_at}</td>
+                            <td class="am-text-center am-text-middle">
+                                
+                                <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)">查看</button>
+                                <button type="button" class="but-use">导出</button>
+                            </td>
+                        </tr>
+                `;
+
+                $('#table_list').empty();
+                $('#table_list').append(Str);
+
+                //总页数
+                objNumService = data.total;
+            }
+        }
+
+    })
+
+}
+
+//查看
+function watch(a){
+    console.log( $(a).parent().parent().children().eq(0).text())
+    var group = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "lab_formRecord.html?group="+group;
+}

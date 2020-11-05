@@ -1,6 +1,18 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
 
+    //执行一个laypage实例
+    laypage.render({
+        elem: 'laypagation',
+        url: 'http://bread.varsion.cn/api/supadmin/tearecorddisplay',
+        curr: 1 //设定初始在第 5 页
+            ,
+        limit: 8,
+        page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
+                ,
+
+
 /**
  * 方法作用 获取展示的总页数
  * 请求接口 api/supadmin/tearecorddisplay
@@ -50,6 +62,25 @@ $.jqPaginator('#pagination2', {
                              </tr>`
             }
 
+
+            let Str = ''
+             for (var i = 0; i < data.data.data.length; i++){
+                    console.log(data.data.data.length)
+                Str += `
+                         <tr class="am-text-center am-text-middle">
+                            <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
+                            <td class="am-text-center am-text-middle">
+             
+                       
+                                <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                <button type="button" class="but-use" onclick="see1(this)">导出</button>
+                            </td>
+                        </tr>
+                       `;
+             }
+
             $('#table_list').empty();
             $('#table_list').append(str);
 
@@ -76,14 +107,46 @@ function select() {
         dataType: 'json',
         async: false,
         success: function (data) {
+
             totalPageasd1 = data.data.last_page
             console.log(data.data.last_page)
+
+            console.log(data.data)
+            if (result.code == 200) {
+                let Str = '';
+                for (var i = 0; i < data.data.data.length;i++){
+                    Str += `
+                    <tr class="am-text-center am-text-middle">
+                            <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                            <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
+                            <td class="am-text-center am-text-middle">
+                                <!-- 修改按钮 -->
+                                <!-- <button type="button" class="btn-look">修改</button> -->
+                                <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                <button type="button" class="but-use" ">导出</button>
+                            </td>
+                        </tr>
+                    `;
+                }
+                // $('#table_list').empty();
+                $('#table_list').append(Str);
+
+                //总页数
+                objNumService = data.data.total;
+
+        }
+        if(result.code == 100){
+            alert('搜索信息失败')
+        }
+
 
         },
         error: function (e) {
             alert('操作失败')
         }
     })
+
 
     //根据获取到的搜索总页数分页展示
     $.jqPaginator('#pagination2', {
@@ -120,3 +183,20 @@ function select() {
     });
 
 }
+
+}
+
+function see(a) {
+
+    console.log( $(a).parent().parent().children().eq(0).text())
+    var form_id = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "inspectionrecord.html?form_id="+form_id;
+}
+
+function see1(a){
+    console.log( $(a).parent().parent().children().eq(0).text())
+    var form_id = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "inspectionrecord.html?form_id="+form_id;
+
+}
+
