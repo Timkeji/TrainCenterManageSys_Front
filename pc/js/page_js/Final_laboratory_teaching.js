@@ -1,6 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
-layui.use('laypage', function() {
-    var laypage = layui.laypage;
+
 
     //执行一个laypage实例
     laypage.render({
@@ -13,27 +12,56 @@ layui.use('laypage', function() {
             layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
                 ,
 
-            groups: 1 //只显示 1 个连续页码
-                ,
-            count: 10,
-            theme: '#1E9FFF',
-            first: false //不显示首页
-                ,
-            last: false //不显示尾页
 
-        }, //注意，这里的 test1 是 ID，不用加 # 号
-
-        count: 50 //数据总数，从服务端得到
-    });
+/**
+ * 方法作用 获取展示的总页数
+ * 请求接口 api/supadmin/tearecorddisplay
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+$.ajax({
+    type: "get",
+    cache: true,
+    url: SERVER_PATH + "api/supadmin/tearecorddisplay",
+    dataType: 'json',
+    async: false,
+    success: function (data) {
+        totalPageasd = data.data.last_page
+        console.log(data.data.last_page)
+    },
+    error: function (e) {
+    }
 });
 
 /**
- * 页面渲染
+ * 方法作用 根据获取到的展示总页数分页展示
+ * 请求接口 api/supadmin/tearecorddisplay
+ * @author chenmiao <github.com/Yidaaa-u>
  */
-$(document).ready(function (){
-    $.get(SERVER_PATH+'api/supadmin/tearecorddisplay',function (data){
-        console.log(data)
-        if(data.code == 200){
+$.jqPaginator('#pagination2', {
+    totalPages: totalPageasd,
+    visiblePages: 8,
+    currentPage: 1,
+    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+    page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+    onPageChange: function (num) {
+        $.get("http://bread.varsion.cn/api/supadmin/tearecorddisplay?page=" + num, function (data) {
+            var str = '';
+            console.log(data.code)
+            for (var i = 0; i < data.data.data.length; i++) {
+                str += ` <tr class="am-text-center am-text-middle">
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
+                                 <td class="am-text-center am-text-middle">
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see()"}">查看</button>
+                                     <button type="button" class="but-use">导出</button>
+                                 </td>
+                             </tr>`
+            }
+
 
             let Str = ''
              for (var i = 0; i < data.data.data.length; i++){
@@ -52,28 +80,37 @@ $(document).ready(function (){
                         </tr>
                        `;
              }
+
             $('#table_list').empty();
-            $('#table_list').append(Str);
+            $('#table_list').append(str);
 
-            //总页数
-            objNumService = data.data.total;
-        }
+        })
+    }
+});
 
-    })
-})
+/**
+ * 方法作用 对搜索结果分页
+ * 请求接口 api/supadmin/tearecordselect
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+function select() {
 
-//搜索
-function select(){
     var a = document.getElementById("name").value;
     console.log(a);
+    //获取搜索的总页数
     $.ajax({
         type: "GET",
-        cache: false,
+        cache: true,
         //contentType: "application/json;charset=UTF-8",
         url: SERVER_PATH + "api/supadmin/tearecordselect",
-        data: {form_id: a},
+        data: { form_id: a },
         dataType: 'json',
+        async: false,
         success: function (data) {
+
+            totalPageasd1 = data.data.last_page
+            console.log(data.data.last_page)
+
             console.log(data.data)
             if (result.code == 200) {
                 let Str = '';
@@ -103,11 +140,49 @@ function select(){
             alert('搜索信息失败')
         }
 
+
         },
-        error : function(e){
+        error: function (e) {
             alert('操作失败')
         }
     })
+
+
+    //根据获取到的搜索总页数分页展示
+    $.jqPaginator('#pagination2', {
+        totalPages: totalPageasd1,
+        visiblePages: 8,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+        next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+        last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (num) {
+            $.get("http://bread.varsion.cn/api/supadmin/tearecordselect?form_id=" + a + "&page=" + num, function (data) {
+                var str = '';
+                console.log(totalPageasd1)
+
+                for (var i = 0; i < data.data.data.length; i++) {
+                    str += ` <tr class="am-text-center am-text-middle">
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
+                                 <td class="am-text-center am-text-middle">
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see()"}">查看</button>
+                                     <button type="button" class="but-use">导出</button>
+                                 </td>
+                             </tr>`
+                }
+
+                $('#table_list').empty();
+                $('#table_list').append(str);
+
+            })
+        }
+    });
+
+}
 
 }
 
@@ -124,3 +199,4 @@ function see1(a){
     window.location.href = "inspectionrecord.html?form_id="+form_id;
 
 }
+
