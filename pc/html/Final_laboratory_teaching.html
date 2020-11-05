@@ -107,14 +107,14 @@
                     <div class="am-u-lg-6 am-u-sm-6">
                         <div class="am-show-md-down down-left">
                             <div class="input_ser">
-                                <input type="text" name="sear_input">
-                                <i class="iconfont icon-sousuo"></i>
+                                <input type="text" name="sear_input" >
+                                <i class="iconfont icon-sousuo"  ></i>
                             </div>
                         </div>
                         <div class="am-hide-md-down down-left">
                             <div class="input_ser">
-                                <input type="text" name="name" id="name" value="">
-                                <i class="iconfont icon-sousuo" onclick="select(name)"></i>
+                                <input type="text" id="name" name="name" value="">
+                                <i class="iconfont icon-sousuo" onclick="select()"></i>
                             </div>
                         </div>
                     </div>
@@ -134,80 +134,7 @@
                         </tr>
                     </thead>
                     <tbody id="table_list">
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <!-- 修改按钮 -->
-                                <!-- <button type="button" class="btn-look">修改</button> -->
-                                <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
-                        <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">20200915</td>
-                            <td class="am-text-center am-text-middle">汤海</td>
-                            <td class="am-text-center am-text-middle">2020-09-15 18:00:00</td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look">查看</button>
-                                <button type="button" class="but-use">删除</button>
-                            </td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -224,47 +151,47 @@
 
 
     <!-- 查看弹出层 -->
-    <div class="am-modal am-modal-alert" tabindex="-1" id="movedalert">
-        <div class="am-modal-dialog am-mover" id="movedalert1">
-            <div class="am-modal-hd am-u-sm-centered ">查看</div>
-            <div class="am-modal-bd am-u-sm-centered am-bd-1">
-                    <div class="am-g textam">
-                        <div class="am-u-sm-4 am-left ">
-                            <p class="am-text-center am-text-middle textp am-text-sm">表单编号</p>
-                        </div>
-                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                            <p class="am-text-center am-text-middle textp am-text-sm">
-                                <input type="text" value="&nbsp;&nbsp;20200915" class="inputmovedd">
-                            </p>
-                        </div>
-                    </div>
-                    <div class="am-g textam">
-                        <div class="am-u-sm-4 am-left">
-                            <p class="am-text-center am-text-middle textp am-text-sm">申请人</p>
-                        </div>
-                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                            <p class="am-text-center am-text-middle textp am-text-sm">
-                                <input type="text" value="&nbsp;&nbsp;汤海" class="inputmovedd">
-                            </p>
-                        </div>
-                    </div>
-                    <div class="am-g textam">
-                        <div class="am-u-sm-4 am-left ">
-                            <p class="am-text-center am-text-middle textp am-text-sm">完成时间</p>
-                        </div>
-                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">
-                            <p class="am-text-center am-text-middle textp am-text-sm">
-                                <input type="text" value="&nbsp;&nbsp;2020-09-15 18:00:00" class="inputmovedd">
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            <div class="am-modal-footer am-u-sm-centered">
-                <div class="am-modal-btn footbtn">查看</div>
-                <div class="am-modal-btn footbtn">取消</div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="am-modal am-modal-alert" tabindex="-1" id="movedalert">-->
+<!--        <div class="am-modal-dialog am-mover" id="movedalert1">-->
+<!--            <div class="am-modal-hd am-u-sm-centered ">查看</div>-->
+<!--            <div class="am-modal-bd am-u-sm-centered am-bd-1">-->
+<!--                    <div class="am-g textam">-->
+<!--                        <div class="am-u-sm-4 am-left ">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">表单编号</p>-->
+<!--                        </div>-->
+<!--                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">-->
+<!--                                <input type="text" value="&nbsp;&nbsp;20200915" class="inputmovedd">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="am-g textam">-->
+<!--                        <div class="am-u-sm-4 am-left">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">申请人</p>-->
+<!--                        </div>-->
+<!--                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">-->
+<!--                                <input type="text" value="&nbsp;&nbsp;汤海" class="inputmovedd">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="am-g textam">-->
+<!--                        <div class="am-u-sm-4 am-left ">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">完成时间</p>-->
+<!--                        </div>-->
+<!--                        <div class="am-u-sm-7 am-u-sm-offset-1 am-left ">-->
+<!--                            <p class="am-text-center am-text-middle textp am-text-sm">-->
+<!--                                <input type="text" value="&nbsp;&nbsp;2020-09-15 18:00:00" class="inputmovedd">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            <div class="am-modal-footer am-u-sm-centered">-->
+<!--                <div class="am-modal-btn footbtn">查看</div>-->
+<!--                <div class="am-modal-btn footbtn">取消</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <!--[if (gte IE 9)|!(IE)]><!-->
@@ -276,6 +203,7 @@
     <script src="../assets/js/app.js"></script>
     <script src="../js/echarts.min.js"></script>
     <script src="../js/layui.all.js"></script>
+    <script src="../js/jquery-2.0.0.min.js"></script>
     <script src="../js/page_js/Final_laboratory_teaching.js"></script>
 
 
