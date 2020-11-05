@@ -68,7 +68,7 @@ $(document).ready(function() {
                             <td class="am-text-center am-text-middle">
                                 
                                 <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)">查看</button>
-                                <button type="button" class="but-use">导出</button>
+                                <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
                             </td>
                         </tr>
                 `;
@@ -102,7 +102,7 @@ function xialakuangliandong() {
                             <td class="am-text-center am-text-middle">
                                 
                                 <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)" >查看</button>
-                                <button type="button" class="but-use">导出</button>
+                                <button type="button" class="but-use"onclick="dc_getmes(this)">导出</button>
                             </td>
                         </tr>
                 `;
@@ -140,7 +140,7 @@ function select3(){
                             <td class="am-text-center am-text-middle">
                                 
                                 <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)">查看</button>
-                                <button type="button" class="but-use">导出</button>
+                                <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
                             </td>
                         </tr>
                 `;
@@ -162,4 +162,10 @@ function watch(a){
     console.log( $(a).parent().parent().children().eq(0).text())
     var group = $(a).parent().parent().children().eq(0).text();
     window.location.href = "lab_formRecord.html?group="+group;
+}
+
+//导出
+function dc_getmes(a) {
+    var group = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "lab_formRecord.html?group="+group+"&&"+"flag="+1;
 }

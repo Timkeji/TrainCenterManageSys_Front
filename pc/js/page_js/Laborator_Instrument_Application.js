@@ -45,8 +45,8 @@ $.jqPaginator('#pagination2', {
                                  <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
                                  <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
                                  <td class="am-text-center am-text-middle">
-                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)"}">查看</button>
-                                     <button type="button" class="but-use">导出</button>
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                     <button type="button" class="but-use" onclick="see3(this)">导出</button>
                                  </td>
                              </tr>`
             }
@@ -108,8 +108,8 @@ function select() {
                                  <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
                                  <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
                                  <td class="am-text-center am-text-middle">
-                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)"}">查看</button>
-                                     <button type="button" class="but-use">导出</button>
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                     <button type="button" class="but-use" onclick="see3(this)">导出</button>
                                  </td>
                              </tr>`
                 }
@@ -132,4 +132,8 @@ function see(a) {
     var form_id = $(a).parent().parent().children().eq(0).text();
     window.location.href = "from2.html?form_id=" + form_id;
 
+}
+function see3(a){
+    var form_id = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "from2.html?form_id=" + form_id+"&&"+"flag="+1;
 }

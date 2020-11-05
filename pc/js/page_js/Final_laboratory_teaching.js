@@ -1,16 +1,6 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
 
-    //执行一个laypage实例
-    laypage.render({
-        elem: 'laypagation',
-        url: 'http://bread.varsion.cn/api/supadmin/tearecorddisplay',
-        curr: 1 //设定初始在第 5 页
-            ,
-        limit: 8,
-        page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
-                ,
 
 
 /**
@@ -37,7 +27,7 @@ $.ajax({
  * 请求接口 api/supadmin/tearecorddisplay
  * @author chenmiao <github.com/Yidaaa-u>
  */
-$.jqPaginator('#pagination2', {
+$.jqPaginator('#pagination2',{
     totalPages: totalPageasd,
     visiblePages: 8,
     currentPage: 1,
@@ -56,12 +46,11 @@ $.jqPaginator('#pagination2', {
                                  <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
                                  <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
                                  <td class="am-text-center am-text-middle">
-                                     <button type="button" class="btn-look" id="btn-look1" onclick="see()"}">查看</button>
-                                     <button type="button" class="but-use">导出</button>
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                     <button type="button" class="but-use" onclick="see4(this)">导出</button>
                                  </td>
                              </tr>`
             }
-
 
             let Str = ''
              for (var i = 0; i < data.data.data.length; i++){
@@ -75,7 +64,7 @@ $.jqPaginator('#pagination2', {
              
                        
                                 <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
-                                <button type="button" class="but-use" onclick="see1(this)">导出</button>
+                                <button type="button" class="but-use" onclick="see4(this)">导出</button>
                             </td>
                         </tr>
                        `;
@@ -93,7 +82,7 @@ $.jqPaginator('#pagination2', {
  * 请求接口 api/supadmin/tearecordselect
  * @author chenmiao <github.com/Yidaaa-u>
  */
-function select() {
+function select(){
 
     var a = document.getElementById("name").value;
     console.log(a);
@@ -124,7 +113,7 @@ function select() {
                                 <!-- 修改按钮 -->
                                 <!-- <button type="button" class="btn-look">修改</button> -->
                                 <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
-                                <button type="button" class="but-use" ">导出</button>
+                                <button type="button" class="but-use" onclick="see4(this)">导出</button>
                             </td>
                         </tr>
                     `;
@@ -169,8 +158,8 @@ function select() {
                                  <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
                                  <td class="am-text-center am-text-middle">${data.data.data[i].created_at}</td>
                                  <td class="am-text-center am-text-middle">
-                                     <button type="button" class="btn-look" id="btn-look1" onclick="see()"}">查看</button>
-                                     <button type="button" class="but-use">导出</button>
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
+                                     <button type="button" class="but-use" onclick="see4(this)">导出</button>
                                  </td>
                              </tr>`
                 }
@@ -184,7 +173,7 @@ function select() {
 
 }
 
-}
+
 
 function see(a) {
 
@@ -193,10 +182,10 @@ function see(a) {
     window.location.href = "inspectionrecord.html?form_id="+form_id;
 }
 
-function see1(a){
+
+
+function see4(a){
     console.log( $(a).parent().parent().children().eq(0).text())
     var form_id = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "inspectionrecord.html?form_id="+form_id;
-
+    window.location.href = "inspectionrecord.html?form_id="+form_id+"&&"+"flag="+1;
 }
-
