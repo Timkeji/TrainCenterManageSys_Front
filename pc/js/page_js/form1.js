@@ -161,8 +161,8 @@ $.ajax({
                             }
                         }
                     }
-
-                    pdf.save("content.pdf");
+                    var name = "开放实验室申请单"+form_id
+                    pdf.save(name+".pdf");
                 }
             })
         }

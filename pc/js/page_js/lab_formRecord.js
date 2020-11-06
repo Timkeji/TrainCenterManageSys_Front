@@ -190,8 +190,8 @@ flag = Request['flag']
                                 }
                             }
                         }
-
-                        pdf.save("content.pdf");
+                        var name = "实验室运行记录表"+group
+                        pdf.save(name+".pdf");
                     }
                 })
             }

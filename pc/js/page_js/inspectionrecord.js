@@ -175,7 +175,8 @@ $(document).ready(function (){
                         }
                     }
 
-                    pdf.save("content.pdf");
+                    var name = "期末实验室教学检查记录表"+form_id
+                    pdf.save(name+".pdf");
                 }
             })
         }
