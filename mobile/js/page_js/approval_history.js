@@ -60,7 +60,6 @@ $(function () {
             })
         }
 
-
     /**
      * 通过表单类型查询表单
      *  @author yangsiqi <github.com/Double-R111>

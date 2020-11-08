@@ -185,5 +185,3 @@ $(document).ready(function (){
         }
     })
 })
-
-})
