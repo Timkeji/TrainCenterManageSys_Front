@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layPage快速使用</title>
+  <link rel="stylesheet" href="../css/layui.css" media="all">
+</head>
+<body>
+ 
+<table id="demo">
+
+</table>
+ 
+<script src="../js/layui.all.js"></script>
+<script src="../js/jquery-2.0.0.min.js"></script>
+<script>
+layui.use('table', function(){
+    var table = layui.table;
+
+    dicTable =  table.render({
+        elem: '#demo'
+        ,url:'http://bread.varsion.cn/api/supadmin/labbordisplay'
+        ,parseData: function(res) { //res 即为原始返回的数据
+            console.log(res);
+            return {
+                "code":'0', //解析接口状态
+                "msg": res.message, //解析提示文本
+                "count":res.total, //解析数据长度
+                "data": res.data.data //解析数据列表
+            }
+        }
+        ,toolbar: '#toolbarDemo'
+        ,title: '后台用户管理'
+        ,totalRow: true
+        ,id:'idTest'
+        ,cols: [[
+            {type: 'radio', fixed: 'left'}
+            ,{field:'form_id', title:'表单编号', width:150, edit: 'text'}
+            ,{field:'applicant_name', title:'申请人', width:150, edit: 'text'}
+            ,{field:'updated_at', title:'更新日期', width:80,  edit: 'text' }
+        ]]
+        ,page: true
+    });
+});
+
+// layui.use('laypage', function() {
+//     var laypage = layui.laypage;
+
+//     //执行一个laypage实例
+//     laypage.render({
+//         elem: 'laypagation',
+//         url: 'http://bread.varsion.cn/api/supadmin/labbordisplay',
+//         curr: 1 //设定初始在第 5 页
+//             ,
+//         limit: 8,
+//         page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+//             layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
+//                 ,
+
+//             groups: 1 //只显示 1 个连续页码
+//                 ,
+//             count: 10,
+//             theme: '#1E9FFF',
+//             first: false //不显示首页
+//                 ,
+//             last: false //不显示尾页
+
+//         }, //注意，这里的 test1 是 ID，不用加 # 号
+
+//         count: 50 //数据总数，从服务端得到
+//     });
+// });
+</script>
+</body>
+</html>
+      

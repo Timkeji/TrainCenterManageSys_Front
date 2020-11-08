@@ -1,27 +1,140 @@
-layui.use('laypage', function() {
-    var laypage = layui.laypage;
+var SERVER_PATH = 'http://bread.varsion.cn/'
 
-    //执行一个laypage实例
-    laypage.render({
-        elem: 'laypagation',
-        url: '/demo/table/user/',
-        curr: 1 //设定初始在第 5 页
-            ,
-        limit: 8,
-        page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
-                ,
-
-            groups: 1 //只显示 1 个连续页码
-                ,
-            count: 10,
-            theme: '#1E9FFF',
-            first: false //不显示首页
-                ,
-            last: false //不显示尾页
-
-        }, //注意，这里的 test1 是 ID，不用加 # 号
-
-        count: 50 //数据总数，从服务端得到
-    });
+/**
+ * 方法作用 获取展示的总页数
+ * 请求接口 api/supadmin/labbordisplay
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+$.ajax({
+    type: "get",
+    cache: true,
+    url: SERVER_PATH + "api/supadmin/labbordisplay",
+    dataType: 'json',
+    async: false,
+    success: function (data) {
+        totalPageasd = data.data.last_page
+        console.log(data.data.last_page)
+    },
+    error: function (e) {
+    }
 });
+/**
+ * 方法作用 根据获取到的展示总页数分页展示
+ * 请求接口 api/supadmin/labbordisplay
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+$.jqPaginator('#pagination2', {
+    totalPages: totalPageasd,
+    visiblePages: 8,
+    currentPage: 1,
+    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+    page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+    onPageChange: function (num) {
+        $.get("http://bread.varsion.cn/api/supadmin/labbordisplay?page=" + num, function (data) {
+            var str = '';
+            console.log(data.code)
+            for (var i = 0; i < data.data.data.length; i++) {
+                str += ` <tr class="am-text-center am-text-middle">
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
+                                 <td class="am-text-center am-text-middle">
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)"}">查看</button>
+                                     <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
+                                 </td>
+                             </tr>`
+            }
+
+            $('#table_list').empty();
+            $('#table_list').append(str);
+
+        })
+    }
+});
+
+
+/**
+ * 方法作用 对搜索结果分页
+ * 请求接口 api/supadmin/labborselect
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+function select() {
+
+    var a = document.getElementById("name").value;
+    console.log(a);
+    //获取搜索的总页数
+    $.ajax({
+        type: "GET",
+        cache: true,
+        //contentType: "application/json;charset=UTF-8",
+        url: SERVER_PATH + "api/supadmin/labborselect",
+        data: { form_id: a },
+        dataType: 'json',
+        async: false,
+        success: function (data) {
+            totalPageasd1 = data.data.last_page
+            console.log(data.data.last_page)
+
+        },
+        error: function (e) {
+            alert('操作失败')
+        }
+    })
+
+    //根据获取到的搜索总页数分页展示
+    $.jqPaginator('#pagination2', {
+        totalPages: totalPageasd1,
+        visiblePages: 8,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+        next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+        last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (num) {
+            $.get("http://bread.varsion.cn/api/supadmin/labborselect?form_id=" + a + "&page=" + num, function (data) {
+                var str = '';
+                console.log(totalPageasd1)
+
+                for (var i = 0; i < data.data.data.length; i++) {
+                    str += ` <tr class="am-text-center am-text-middle">
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
+                                 <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
+                                 <td class="am-text-center am-text-middle">
+                                     <button type="button" class="btn-look" id="btn-look1" onclick="see(this)"}">查看</button>
+                                     <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
+                                 </td>
+                             </tr>`
+                }
+
+                $('#table_list').empty();
+                $('#table_list').append(str);
+
+            })
+        }
+    });
+
+}
+
+/**
+ * 方法作用 查看跳转页面
+ * @author chenmiao <github.com/Yidaaa-u>
+ */
+function see(a) {
+    var form_id = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "Loanapplicationform.html?form_id=" + form_id;
+
+}
+
+/**
+ * 导出
+ */
+function dc_getmes(a) {
+    var form_id = $(a).parent().parent().children().eq(0).text();
+    window.location.href = "Loanapplicationform.html?form_id=" + form_id+"&&"+"flag="+1;
+
+}
