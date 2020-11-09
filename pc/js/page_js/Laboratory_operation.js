@@ -1,5 +1,6 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
+
 // layui.use('laypage', function() {
 //     var laypage = layui.laypage;
 //
@@ -28,13 +29,15 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
 //     });
 // });
 
+
+>
 //下拉框渲染
 $(document).ready(function() {
+    console.log(SERVER_PATH)
     $.get(SERVER_PATH+'api/supadmin/getlab',function (data){
         console.log(data)
         let Str = ''
         if(data.code == 200){
-
                 Str = `
                  <select id="choose" onchange="xialakuangliandong()">
                         <option value="null">--请选择--</option>
@@ -51,6 +54,11 @@ $(document).ready(function() {
         if (data.code == 100){
             alert('下拉框获取失败')
         }
+
+
+    })
+
+
 
     })
 
@@ -80,10 +88,12 @@ $(document).ready(function() {
             objNumService = data.result.total;
 
 
+
     })
 
 
-})
+
+
 
 //下拉联动
 function xialakuangliandong() {
@@ -168,4 +178,8 @@ function watch(a){
 function dc_getmes(a) {
     var group = $(a).parent().parent().children().eq(0).text();
     window.location.href = "lab_formRecord.html?group="+group+"&&"+"flag="+1;
+
 }
+
+
+

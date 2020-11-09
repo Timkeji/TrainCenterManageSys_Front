@@ -7,8 +7,7 @@
   <title>实验室实训中心</title>
 
   <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="css/layui.css" media="all">
-    <link rel="stylesheet" href="../css/list_forms.css" media="all">
+  <link rel="stylesheet" href="../css/list_forms.css" media="all">
 </head>
 
 <body>
@@ -29,22 +28,23 @@
     </div>
 </div>
 <div class="formtype">
-    <input type="text" name="" id=""  placeholder="搜索表单" class="searchform">
+    <input type="text" name="import" id="import"  placeholder="搜索表单" class="searchform" >
 
-    <span class="layui-icon layui-icon-search "></span>
-    <select name="city" lay-verify="" class="allform" >
-        <option value="全部类型">全部类型</option>
-        <option value="实验室借用表单">实验室借用表单</option>
-        <option value="实验室仪器设备借用">实验室仪器设备借用</option>
-        <option value="开放实验室">开放实验室</option>
-        <option value="期末检查记录表">期末检查记录表</option>
+    <span class="layui-icon layui-icon-search " id ="btn01"></span>
+    <select name="city" id= "city" lay-verify="" class="allform" onchange="category()">
+        <option value="0">全部类型</option>
+        <option value="1">实验室借用表单</option>
+        <option value="2">期末检查记录表</option>
+        <option value="3">实验室仪器设备借用</option>
+        <option value="4">实验室运行记录表</option>
+        <option value="5">开放实验室</option>
       </select> 
-      <select name="" lay-verify="" class="status">
-        <option value="所有状态">所有状态</option>
-        <option value="审批中">审批中</option>
-        <option value="审批未通过">审批未通过</option>
-        <option value="通过审批">通过审批</option>
-      </select>         
+      <select name="status" id="status"lay-verify="" class="status" onchange="category()">
+        <option value="0">所有状态</option>
+        <option value="1">审批中</option>
+        <option value="2">审批未通过</option>
+        <option value="3">通过审批</option>
+      </select>
 </div>
 <div class="forminformation">
     <form action="">
@@ -64,7 +64,7 @@
                   <th>操作</th>
                 </tr> 
               </thead>
-              <tbody>
+              <tbody id = "form">
                 <tr>
                   <td>101010</td>
                   <td>实验室仪器设备借用</td>
@@ -100,9 +100,12 @@
 </div>
 
   <!-- js的引用 -->
+  <script src="../"></script>
   <script src="../layui/layui.all.js"></script>
-  <script src="../layui/lay/modules/jquery.js"></script>
+  <!-- <script src="../layui/lay/modules/jquery.js"></script> -->
+  <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
   <script src="../js/page_js/test.js"></script>
+  <script src="../js/page_js/list_forms.js"></script>
 </body>
 
 </html>

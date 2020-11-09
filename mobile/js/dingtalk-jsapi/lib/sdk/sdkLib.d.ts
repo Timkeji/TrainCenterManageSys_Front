@@ -122,7 +122,7 @@ export interface ILog {
     text: any[];
     time: Date;
 }
-export declare type ILogFn = (option: ILog) => void;
+export declare type ILogFn = () => void;
 export interface IPlatformConfig {
     platform: string;
     authMethod: string;

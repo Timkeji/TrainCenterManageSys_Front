@@ -7,7 +7,7 @@ var totalPageasd = 2;
 $.ajax({
     type: "get",
     cache: true,
-    url: "http://bread.varsion.cn/api/supadmin/showclass",
+    url: SERVER_PATH+"/api/supadmin/showclass",
     dataType: 'json',
     async: false,
     //请求成功
@@ -29,7 +29,7 @@ $.jqPaginator('#pagination2', {
     last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
     page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
     onPageChange: function(num) {
-        $.get("http://bread.varsion.cn/api/supadmin/showclass?page="+num,function (data){
+        $.get(SERVER_PATH+"/api/supadmin/showclass?page="+num,function (data){
         let Str=``;
 
         for(let pre = 0 ; pre < data.data.data.length ; pre++){
@@ -50,33 +50,6 @@ $.jqPaginator('#pagination2', {
     }
 });
 
-
-
-
-
-// //展示班级页面
-// $(document).ready(function (){
-//     $.get(SERVER_PATH+'/api/supadmin/showclass',function (data){
-//         console.log(data)
-//         let Str=``;
-//
-//         for(let pre = 0 ; pre < data.data.data.length ; pre++){
-//
-//             Str +=`
-//                         <tr class="am-text-center am-text-middle">
-//                             <td class="am-text-center am-text-middle">${data.data.data[pre].class_name}</td>
-//                             <td class="am-text-center am-text-middle">${data.data.data[pre].department_name}</td>
-//                             <td class="am-text-center am-text-middle">
-//                                 <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#modify'}" onclick="modifyClass(${data.data.data[pre].class_id})">修改</button>
-//                                 <button type="button" class="but-use" onclick="classDelete(${data.data.data[pre].class_id})">删除</button>
-//                             </td>
-//                         </tr>`
-//         }
-//         $('#table_list').empty();
-//         $('#table_list').append(Str);
-//
-//     })
-// })
 ///下拉框展示的系部
 $(document).ready(function (){
     $.get(SERVER_PATH+'/api/supadmin/showdepartment',function (data){
@@ -231,8 +204,6 @@ function modifyClass(id){
 
 
 
-
-
 findClass();
 /////查询系别管理
 function findClass(){
@@ -245,7 +216,7 @@ function findClass(){
         $.ajax({
             type: "get",
             cache: true,
-            url: "http://bread.varsion.cn/api/supadmin/findclass",
+            url: SERVER_PATH+"/api/supadmin/findclass",
             data:{class_name:name},
             dataType: 'json',
             async: false,
@@ -268,7 +239,7 @@ function findClass(){
             last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
             page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
             onPageChange: function(num) {
-                $.get("http://bread.varsion.cn/api/supadmin/findclass?class_name="+name+"&page="+num,function (data){
+                $.get(SERVER_PATH+"/api/supadmin/findclass?class_name="+name+"&page="+num,function (data){
             let Str=``;
 
             for(let pre = 0 ; pre < data.data.data.length ; pre++){
@@ -291,39 +262,3 @@ function findClass(){
 
     })
 }
-
-
-
-
-
-
-// $.ajax({
-//     type:"GET",
-//     url: SERVER_PATH+'/api/supadmin/findclass',
-//     data:{class_name:name},
-//     success: function (data) {
-//         if(data.code == 200) {
-//             console.log(data)
-//             let Str=``;
-//
-//             for(let pre = 0 ; pre < data.data.data.length ; pre++){
-//
-//                 Str +=`
-//                         <tr class="am-text-center am-text-middle">
-//                             <td class="am-text-center am-text-middle">${data.data.data[pre].class_name}</td>
-//                             <td class="am-text-center am-text-middle">${data.data.data[pre].department_name}</td>
-//                             <td class="am-text-center am-text-middle">
-//                                 <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#modify'}" onclick="modifyClass(${data.data.data[pre].class_id})">修改</button>
-//                                 <button type="button" class="but-use" onclick="classDelete(${data.data.data[pre].class_id})">删除</button>
-//                             </td>
-//                         </tr>`
-//             }
-//             $('#table_list').empty();
-//             $('#table_list').append(Str);
-//
-//         }
-//         else if (data.code == 100){
-//             console.log("查询系部失败")
-//         }
-//     }
-// })
