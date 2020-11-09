@@ -28,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TrainCenterManageSys" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -42,7 +42,13 @@
       <updated>1604022036676</updated>
       <workItem from="1604022037755" duration="9030000" />
       <workItem from="1604277995087" duration="24027000" />
-      <workItem from="1604363247721" duration="17787000" />
+      <workItem from="1604363247721" duration="20698000" />
+      <workItem from="1604449764298" duration="595000" />
+      <workItem from="1604537426812" duration="4551000" />
+      <workItem from="1604624172797" duration="1821000" />
+      <workItem from="1604882234184" duration="5695000" />
+      <workItem from="1604889546988" duration="2621000" />
+      <workItem from="1604892411089" duration="8143000" />
     </task>
     <servers />
   </component>
@@ -55,10 +61,10 @@
     </state>
     <state x="-1199" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1604386132759" />
     <state x="-1199" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.0.1471.864/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1604387273017" />
-    <state x="335" y="255" key="FileChooserDialogImpl" timestamp="1604364470221">
+    <state x="335" y="255" key="FileChooserDialogImpl" timestamp="1604886518459">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="335" y="255" key="FileChooserDialogImpl/62.0.1474.864/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1604364470221" />
+    <state x="335" y="255" key="FileChooserDialogImpl/62.0.1474.864/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1604886518459" />
     <state x="-1467" y="152" width="1488" height="856" key="dock-window-1" timestamp="1604308138579">
       <screen x="-1858" y="0" width="1858" height="1080" />
     </state>

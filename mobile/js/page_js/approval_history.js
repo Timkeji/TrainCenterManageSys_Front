@@ -1,11 +1,55 @@
+
 $(function () {
         searchForm();
         selectType();
+        /**
+         * 展示初始化页面
+         */
+        $(document).ready(function (){
+            $.ajax({
+                type:"GET",
+                url:"http://bread.varsion.cn/api/approval/showall?code=xxx",
+                success:function (data){
+                    if(data.code === 200){
+                        let str = ``;
+                        for(let i = 0;i < data.data.length ;i++){
+                            if (data.data[i].status_name == "通过") {
+                                var flag = 1;
+                            } else {
+                                flag = 0;
+                            }
+                            str += `<tr>
+                    <td>${data.data[i].form_id}</td>
+                    <td>${data.data[i].type_name}</td>
+                    <td>${data.data[i].applicant_name}</td>
+                    `;
+                            if(data.data[i].type_name == "实验室借用申请表单"){
+                                str += `<td class="status_name"><a href="Hty_labLoan.html?&&form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
+                  </tr>`
+                            }else if( data.data[i].type_name == "实验室仪器设备借用单"){
+                                str += `<td class="status_name"><a href="Hty_labInstr.html?&&form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
+                  </tr>`
+                            }else if(data.data[i].type_name == "开放实验室使用申请单"){
+                                str += `<td class="status_name"><a href="Hty_labOpen.html?&&form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
+                  </tr>`
+                            }
+                        }
+                        $('#form_history').empty();
+                        $('#form_history').append(str);
+                    }
+                    if (data.code === 100) {
+                        console.log(data.msg);
+                    }
+                }, error: function (data) {
+                    console.log("error")
+                }
+            })
+        })
 
-    /**
-     * 通过表单编号和申请人姓名查询表单
-     * @author yangsiqi <github.com/Double-R111>
-     */
+        /**
+         * 通过表单编号和申请人姓名查询表单
+         * @author yangsiqi <github.com/Double-R111>
+         */
         function searchForm() {
             $(".search_icon").click(function () {
                 var value = $('.seacher_input').val();
@@ -53,7 +97,6 @@ $(function () {
                                 }
                             })
                         }
-                        console.log(str)
                         $('#form_history').empty().append(str);
                     }
                 })
@@ -61,15 +104,13 @@ $(function () {
         }
 
 
-    /**
-     * 通过表单类型查询表单
-     *  @author yangsiqi <github.com/Double-R111>
-     */
-    function selectType() {
+        /**
+         * 通过表单类型查询表单
+         *  @author yangsiqi <github.com/Double-R111>
+         */
+        function selectType() {
             $(".seacher_select").change(function () {
                 var choose = $(".seacher_select").val();
-                // console.log(choose)
-                // console.log(value);
                 var code = "xxxxx";
                 var type_name = "";
                 switch (choose) {
@@ -86,7 +127,6 @@ $(function () {
                         type_name = "实验室仪器设备借用单";
                         break;
                 }
-                // console.log(type_name);
                 $.ajax({
                     type: "GET",
                     datatype: "json",
@@ -113,13 +153,13 @@ $(function () {
                                    <td>${data.data[i].applicant_name}</td>
                                   `;
                                 if (data.data[i].type_name == "实验室借用申请表单") {
-                                    str += `<td class="status_name"><a href="Hty_labLoan.html?form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
+                                    str += `<td class="status_name"><a href="Hty_labLoan.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
 </tr>`
                                 } else if (data.data[i].type_name == "实验室仪器设备借用单") {
-                                    str += `<td class="status_name"><a href="Hty_labInstr.html?form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
+                                    str += `<td class="status_name"><a href="Hty_labInstr.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
 </tr>`
                                 } else if (data.data[i].type_name == "开放实验室使用申请单") {
-                                    str += `<td class="status_name"><a href="Hty_labOpen.html?form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
+                                    str += `<td class="status_name"><a href="Hty_labOpen.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
 </tr>`
                                 }
                             })

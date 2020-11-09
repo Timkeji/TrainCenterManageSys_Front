@@ -1,8 +1,8 @@
 
-JWeb:BoldAndItalicTagsCheck "Replace this <i> tag by <em>.(âÃÝË8ÃœìÃ×.
+n Web:TableHeaderHasIdOrScopeCheck3";Add either an 'id' or a 'scope' attribute to this <th> tag.(Á§Ö—8­Ž‘¶Ø.
 n Web:TableHeaderHasIdOrScopeCheck2";Add either an 'id' or a 'scope' attribute to this <th> tag.(§ÞÇà8­Ž‘¶Ø.
 TWeb:TableWithoutCaptionCheck-" Add a description to this table.(þ’ÄËþÿÿÿÿ8­Ž‘¶Ø.
-n Web:TableHeaderHasIdOrScopeCheck0";Add either an 'id' or a 'scope' attribute to this <th> tag.(²ïñˆ8­Ž‘¶Ø.
 HWeb:BoldAndItalicTagsCheck"Replace this <i> tag by <em>.(»á«Ïþÿÿÿÿ
 s Web:TableHeaderHasIdOrScopeCheck1";Add either an 'id' or a 'scope' attribute to this <th> tag.(Õ«ÂÂÿÿÿÿÿ8­Ž‘¶Ø.
-n Web:TableHeaderHasIdOrScopeCheck3";Add either an 'id' or a 'scope' attribute to this <th> tag.(Á§Ö—8­Ž‘¶Ø.
+JWeb:BoldAndItalicTagsCheck "Replace this <i> tag by <em>.(âÃÝË8ÃœìÃ×.
+n Web:TableHeaderHasIdOrScopeCheck0";Add either an 'id' or a 'scope' attribute to this <th> tag.(²ïñˆ8­Ž‘¶Ø.
