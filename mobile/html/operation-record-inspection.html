@@ -30,41 +30,47 @@
     </div>
   </div>
   <div class="form">
-    <form action="">
+    <form id="la_from">
       <table>
         <tbody>
+        <tr>
+          <td>实验室名称</td>
+          <td >
+              <select id="la_name" name="laboratory_name">
+                <option value="" disabled selected hidden>请输入~</option>
+              </select></td>
+        </tr>
           <tr>
             <td>周次</td>
-            <td id="op-week"><input type="text"><p></p></td>
+            <td id="op-week"><input id="op" type="text" name="week"><p></p></td>
           </tr>
           <tr>
             <td>专业班级</td>
             <td id="op-class">
-              <select name="" id="">
-                <option value="" disabled selected hidden></option>
-                <option value="0">数字媒体技术19201</option>
-                <option value="1">数字媒体技术19202</option>
-                <option value="2">数字媒体技术19203</option>
-                <option value="3">数字媒体技术19204</option>
+              <select name="class_name" id="c_name">
+                <option value="" disabled selected hidden>请输入~</option>
+<!--&lt;!&ndash;                <option value="1">数字媒体技术19202</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                <option value="2">数字媒体技术19203</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                <option value="3">数字媒体技术19204</option>&ndash;&gt;-->
               </select>
               <p></p>
             </td>
           </tr>
           <tr>
             <td>学生姓名</td>
-            <td><input type="text" placeholder="后台获取"></td>
+            <td><input type="text" placeholder="后台获取" id="stu_name" name="applicant_name"></td>
           </tr>
           <tr>
             <td>人数</td>
-            <td id="op-num"><input type="number"><p></p></td>
+            <td id="op-num"><input id="num" type="number" name="number"><p></p></td>
           </tr>
           <tr>
             <td>课程名称/实验项目</td>
-            <td id="op-project"><input type="text"><p></p></td>
+            <td id="op-project"><input type="text" name="clas_name" id="cl_name"><p></p></td>
           </tr>
           <tr>
             <td>课程类型</td>
-            <td><select name="" id="">
+            <td><select name="class_type" id="cl_type">
                 <option value="0">必修</option>
                 <option value="1">选修</option>
                 <option value="2">开放</option>
@@ -72,15 +78,15 @@
           </tr>
           <tr>
             <td>任课教师</td>
-            <td id="op-teacher"><input type="text"><p></p></td>
+            <td id="op-teacher"><input type="text" id="te" name="teacher"><p></p></td>
           </tr>
           <tr>
             <td>设备运行情况</td>
-            <td id="op-equipment"><input type="text"><p></p></td>
+            <td id="op-equipment"><input id="sit" type="text" name="situation"><p></p></td>
           </tr>
           <tr>
             <td>备注</td>
-            <td><input type="text"></td>
+            <td><input type="text" name="remark" id="rem"></td>
           </tr>
           <tr class="btn1">
             <td colspan="2" class="btn">
@@ -114,11 +120,7 @@
 
 
 
-  <!-- js的引用 -->
-  <script src="../layui/layui.all.js"></script>
-  <!-- <script src="../js/test.js"></script> -->
-  <script src="../js/jquery-1.12.3.js"></script>
-  <script src="../js/operation-record-inspection.js"></script>
+
   <!-- 实验室运行记录查询 -->
   <!-- <script src="../js/operation-record-inspection.js"></script> -->
 
@@ -135,6 +137,11 @@
 }();
 </script>  -->
 </body>
+<!-- js的引用 -->
+<script src="../layui/layui.all.js"></script>
+<!-- <script src="../js/test.js"></script> -->
+<script src="../js/jquery-1.12.3.js"></script>
+<script src="../js/page_js/operation-record-inspection.js"></script>
 <script src="../js/jquery-1.12.3.js"></script>
 <script src="../js/page_js/fill.js"></script>
 </html>

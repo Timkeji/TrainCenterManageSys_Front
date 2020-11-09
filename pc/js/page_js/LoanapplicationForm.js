@@ -82,7 +82,7 @@ $.ajax({
         $('#name2').append(data.data[0].borrowing_manager_name)
         $('#name3').append(data.data[0].center_director_name)
 
-        if(flag == 1) {
+        if (flag == 1) {
             var target = document.getElementsByClassName("dc_pdf")[0];
             target.style.background = "#FFFFFF";
 
@@ -120,8 +120,8 @@ $.ajax({
                             }
                         }
                     }
-
-                    pdf.save("content.pdf");
+                    var name = "实验室借用申请" + form_id
+                    pdf.save(name + ".pdf");
                 }
             })
         }

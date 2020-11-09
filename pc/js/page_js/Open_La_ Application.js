@@ -32,9 +32,9 @@ $.jqPaginator('#pagination2', {
     prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
     next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
     last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
-    page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+    page: '<li class="page"><a href="javascript:;" class="pagecurrent">{{page}}</a></li>',
     onPageChange: function (num) {
-        $.get("http://bread.varsion.cn/api/supadmin/labopendisplay?page=" + num, function (data) {
+        $.get(SERVER_PATH + "api/supadmin/labopendisplay?page=" + num, function (data) {
             var str = '';
             console.log(data.code)
             for (var i = 0; i < data.data.data.length; i++) {
@@ -51,6 +51,10 @@ $.jqPaginator('#pagination2', {
 
             $('#table_list').empty();
             $('#table_list').append(str);
+            $('.pagecurrent').on('click', function () {
+                $('.pagecurrent').removeClass('current');
+                $(this).addClass('current');
+            })
 
         })
     }
@@ -95,9 +99,9 @@ function select() {
         prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
         next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
         last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
-        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        page: '<li class="page"><a href="javascript:; class="pagecurrent1"">{{page}}</a></li>',
         onPageChange: function (num) {
-            $.get("http://bread.varsion.cn/api/supadmin/labopenselect?form_id=" + a + "&page=" + num, function (data) {
+            $.get(SERVER_PATH + "api/supadmin/labopenselect?form_id=" + a + "&page=" + num, function (data) {
                 var str = '';
                 console.log(totalPageasd1)
 
@@ -115,7 +119,11 @@ function select() {
 
                 $('#table_list').empty();
                 $('#table_list').append(str);
-
+                $('.pagecurrent1').on('click', function () {
+                    // alert(111)
+                    $('.pagecurrent').removeClass('current');
+                    $(this).addClass('current');
+                })
             })
         }
     });
@@ -134,7 +142,7 @@ function see(a) {
 }
 
 //导出
-function see1(a){
+function see1(a) {
     var form_id = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "form1.html?form_id=" + form_id+"&&"+"flag="+1;
+    window.location.href = "form1.html?form_id=" + form_id + "&&" + "flag=" + 1;
 }
