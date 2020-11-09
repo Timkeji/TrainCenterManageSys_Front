@@ -36,38 +36,27 @@
                 <th>&nbsp;&nbsp;操作&nbsp;&nbsp;</th>
                 </thead>
                 <tbody id="tbody">
-                <!-- <tr>
-            <td>101</td>
-            <td>...</td>
-            <td>优</td>
-            <td>优</td>
-            <td><button type="button" class="button">修&nbsp;改</button></td>
-        </tr>
-        <tr>
-            <td>102</td>
-            <td>...</td>
-            <td>优</td>
-            <td>优</td>
-            <td><button type="button" class="button">修&nbsp;改</button></td>
-        </tr>
-        <tr>
-            <td>103</td>
-            <td>...</td>
-            <td>优</td>
-            <td>优</td>
-            <td><button type="button" class="button">修&nbsp;改</button></td>
-        </tr> -->
                 </tbody>
             </table>
         </div>
         <span class="img_fa"><img src="../images/plus.icon.png"></span>
         <span class="button_fa"><button type="button" onclick="cwp_teachadd()">提交</button></span>
+
+
         <!--        提示成功显示框-->
         <div class="success_eject layui-col-xs9">
             <span class="eject_img"><img src="../images/success.png"></span>
             <p>审批提交成功</p>
+            <button type="button" onclick="sucJumpLaborBor()">确&nbsp;认</button>
+        </div>
+
+        <!--        提示失败示框-->
+        <div class="no_eject layui-col-xs9">
+            <span class="eject_img"><img src="../images/no.png"></span>
+            <p>审批提交失败</p>
             <button type="button">确&nbsp;认</button>
         </div>
+
         <!--        表单修改弹出框-->
         <div class="from_eject layui-col-xs9 form-alert">
             <span class="clearfix"><img src="../images/cha.png"></span>
@@ -78,19 +67,12 @@
                         <td class="td_nav2">
                             <select class="re-one"  id="lab_name" onchange="cwp_getLab_name()">
                                 <option value="" class="laboratory_name" disabled selected hidden></option>
-                                <!--                                <option>项目组</option>-->
-                                <!--                                <option>人工智能实验室</option>-->
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td class="td_nav1">实验室编号</td>
                         <td class="td_nav2">
-                            <!--                            <select class="re-tow">-->
-                            <!--&lt;!&ndash;                                <option val="0">1</option>&ndash;&gt;-->
-                            <!--&lt;!&ndash;                                <option val="1">2</option>&ndash;&gt;-->
-                            <!--&lt;!&ndash;                                <option val="2">3</option>&ndash;&gt;-->
-                            <!--                            </select>-->
                             <input class="re_tow" type="text" readonly id="lab_id">
                         </td>
                     </tr>
@@ -160,13 +142,8 @@
                     <tr>
                         <td class="td_nav1">实验室编号</td>
                         <td class="td_nav2" id="site-num">
-                            <!--                                <select class="sec2" id="site-num">-->
                             <input type="text" class="sec2" id="laboratory_id" value="" readonly>
-                            <!--                            <p></p>-->
-                            <!--                                    <option val="" disabled selected hidden></option>-->
-                            <!--                                    <option>1</option>-->
-                            <!--                                    <option>2</option>-->
-                            <!--                                </select>-->
+
                         </td>
                     </tr>
                     <tr>
@@ -210,6 +187,8 @@
             </form>
         </div>
     </form>
+
+
 </section>
 <div class="mask"></div>
 </body>

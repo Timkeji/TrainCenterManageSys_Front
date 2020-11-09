@@ -29,7 +29,8 @@ window.onload=function(){
       Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
       }
       }
-      formid= Request["formid"];
+      formid= Request["form_id"];
+      console.log(formid)
     
     //    页面初始化
 
@@ -39,6 +40,7 @@ window.onload=function(){
             url : SERVER_PATH+"/api/fill/viewlabborrow",
             data: {form_id:formid},// 将json数据转化为字符串
             success: function (data) {
+                console.log(data)
               
                 if(data.code==200){
              

@@ -134,14 +134,15 @@ $(function () {
 
     })
 
-    $('.button_fa button').on('click', function () {
-        $('.success_eject').show();
-        $('.mask').show();
-    })
+    // $('.button_fa button').on('click', function () {
+    //     $('.success_eject').show();
+    //     $('.mask').show();
+    // })
     $('.success_eject button').click(function () {
         $('.success_eject').hide();
         $('.mask').hide();
     })
+
 
     $('.bu_one button').on("click", function () {
         $('.from_eject').hide();
@@ -157,6 +158,10 @@ $(function () {
         $('.mask').hide();
     })
 
+    $('.no_eject button').click(function () {
+        $('.no_eject').hide();
+        $('.mask').hide();
+    })
 })
 
 
@@ -264,12 +269,24 @@ function cwp_teachadd() {
         success: function (data) {
             if (data.code == 200) {
                 console.log(data)
+                $('.success_eject').show();
+                $('.mask').show();
             } else {
                 console.log(data)
+                $('.no_eject').show();
+                $('.mask').show();
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(data + '失败') ;
         }
     });
+}
+
+/**
+ * 方法作用 实验室借用填报成功跳转
+ * @author huweichen <github.com/nathaniel-kk>
+ */
+function sucJumpLaborBor(){
+    window.location.href = 'experimental-training-center.html'
 }

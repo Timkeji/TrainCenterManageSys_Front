@@ -25,7 +25,7 @@ function  jujement (a,b){
     Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
     }
     }
-    formid= Request["formid"];
+    formid= Request["form_id"];
     var SERVER_PATH = 'http://bread.varsion.cn/'
 
     // var a = "C2010284621";
@@ -44,6 +44,7 @@ function  jujement (a,b){
             console.log(data)
             //成功函数回显
             console.log(data.data.borrow_department)
+            console.log(data.data.equipment_array[0].equipment_name)
             if (data.code == 200) {
                 //内容显示
 
