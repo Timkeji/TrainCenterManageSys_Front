@@ -17,12 +17,16 @@ group= Request["group"];
 flag = Request['flag']
 
  $(document).ready(function (){
-    $.get(SERVER_PATH+'api/supadmin/getlaball?group='+group,function (data){
+    $.get('http://bread.varsion.cn/api/supadmin/getlaball?group='+group,function (data){
         console.log(data)
         console.log(flag)
         if(data.code == 200){
             let Str = ''
            if(data.data.length == 0){
+               Str = `
+                <input type="text"> <span>年</span>
+               `
+
                Str =`
                 <tr>
                     <th>序号</th>
@@ -129,7 +133,7 @@ flag = Request['flag']
                 </tr>
                    `
                }
-               for(var i ; i< 12 - data.data.length;i++){
+               for(var j; j < 12 - data.data.length;j++){
                    Str +=`
                    <tr>
                     <td> <input type="text" readonly></td>

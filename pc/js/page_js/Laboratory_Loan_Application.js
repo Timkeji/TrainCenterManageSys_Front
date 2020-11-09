@@ -36,6 +36,7 @@ $.jqPaginator('#pagination2', {
         $.get("http://bread.varsion.cn/api/supadmin/labbordisplay?page=" + num, function (data) {
             var str = '';
             console.log(data.code)
+            console.log(data)
             for (var i = 0; i < data.data.data.length; i++) {
                 str += ` <tr class="am-text-center am-text-middle">
                                  <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>

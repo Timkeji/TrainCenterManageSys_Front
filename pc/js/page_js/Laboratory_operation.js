@@ -34,7 +34,7 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
 //下拉框渲染
 $(document).ready(function() {
     console.log(SERVER_PATH)
-    $.get(SERVER_PATH+'api/supadmin/getlab',function (data){
+    $.get('http://bread.varsion.cn/api/supadmin/getlab',function (data){
         console.log(data)
         let Str = ''
         if(data.code == 200){
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
 //页面渲染
-    $.get(SERVER_PATH+'api/supadmin/getlaballinfo',function (data){
+    $.get('http://bread.varsion.cn/api/supadmin/getlaballinfo',function (data){
 
             console.log(data)
             var Str = ''
@@ -100,7 +100,7 @@ function xialakuangliandong() {
     var type = $("#choose option:selected");
     var lab_name = type.val();
     console.log(lab_name);
-    $.get(SERVER_PATH+'api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
+    $.get('http://bread.varsion.cn/api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
 
         console.log(data)
         var Str = ''
@@ -136,7 +136,7 @@ function select3(){
         type: "GET",
         cache: false,
         //contentType: "application/json;charset=UTF-8",
-        url: SERVER_PATH + "api/supadmin/select",
+        url:  "http://bread.varsion.cn/api/supadmin/select",
         data: {num: a},
         dataType: 'json',
         success:function (data){
