@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dfecdf7-fe0e-43b9-ac9d-04b19e65dae3" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/pc/css/Department.css" beforeDir="false" afterPath="$PROJECT_DIR$/pc/css/Department.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pc/html/Department.html" beforeDir="false" afterPath="$PROJECT_DIR$/pc/html/Department.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pc/html/professional.html" beforeDir="false" afterPath="$PROJECT_DIR$/pc/html/professional.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pc/js/page_js/Department.js" beforeDir="false" afterPath="$PROJECT_DIR$/pc/js/page_js/Department.js" afterDir="false" />
@@ -43,7 +44,14 @@
       <workItem from="1604364421098" duration="28936000" />
       <workItem from="1604450552702" duration="2353000" />
       <workItem from="1604453230027" duration="470000" />
-      <workItem from="1604476188099" duration="609000" />
+      <workItem from="1604476188099" duration="1936000" />
+      <workItem from="1604557428874" duration="9000" />
+      <workItem from="1604559835375" duration="2295000" />
+      <workItem from="1604884396986" duration="1049000" />
+      <workItem from="1604885696902" duration="62000" />
+      <workItem from="1604885760909" duration="696000" />
+      <workItem from="1604888819886" duration="5354000" />
+      <workItem from="1604906302166" duration="569000" />
     </task>
     <servers />
   </component>
@@ -51,9 +59,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2606" y="234" key="FileChooserDialogImpl" timestamp="1604399096645">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1604906870739">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1536.864@0.0.1536.864" timestamp="1604906870739" />
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1604279972987" />
     <state x="2606" y="234" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604399096645" />
   </component>
