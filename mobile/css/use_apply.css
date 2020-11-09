@@ -169,6 +169,46 @@ body {
     border: 1px solid #0088FE;
     margin: 0.4rem 0;
 }
+/*失败*/
+.success_eject3 {
+    z-index: 99999;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+.eject_img {
+    margin: 0.6rem 0;
+    display: block;
+}
+
+.eject_img img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.success_eject3 p {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.success_eject3 button {
+    width: 2rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #0088FE;
+    color: #FFFFFF;
+    font-size: 0.6rem;
+    outline: none;
+    border: 1px solid #0088FE;
+    margin: 0.4rem 0;
+}
 /*疫情承诺提醒*/
 .promise_eject {
     z-index: 99999;

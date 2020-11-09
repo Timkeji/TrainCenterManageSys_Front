@@ -104,11 +104,12 @@ $(function () {
         }
 
 
-        /**
-         * 通过表单类型查询表单
-         *  @author yangsiqi <github.com/Double-R111>
-         */
-        function selectType() {
+    /**
+     * 通过表单类型查询表单
+     *  @author yangsiqi <github.com/Double-R111>
+     */
+    function selectType() {
+
             $(".seacher_select").change(function () {
                 var choose = $(".seacher_select").val();
                 var code = "xxxxx";

@@ -138,6 +138,9 @@ html {
     margin-top: 25px;
     border-radius: 25px;
   }
+  .lablinear,.labcircle{
+    background-color: gray;
+  }
   .complete{
       margin-left: 15px;
   }
@@ -147,9 +150,12 @@ height: 3px;
 margin-top: 29px;
 
   }
-  /* .not_completed {
+  .not_completed {
       background:red;
-  } */
+  }
+  .app_pass{
+    background: #0088fe;
+  }
   .people_box>p{
     width: 60px;
     font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
