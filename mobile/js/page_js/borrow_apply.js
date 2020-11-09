@@ -34,18 +34,6 @@ $(function (){
                 return false;
             }
         })
-        // $('.text td').each(function (){
-        //     text += $(this).text();
-        //     if (text === ""){
-        //         alert('表格至少有一行不能为空');
-        //         return false;
-        //     }else {
-        //         $('.success_eject2').show();
-        //         $('.mask').show();
-        //         return false;
-        //     }
-        // })
-
     })
 
     $('.success_eject2 button').click(function (){
@@ -61,7 +49,8 @@ $(function (){
 
     $('.add_bu button').click(function (){
         // if (td === 1){
-            var td1 = $('#select_equipment').val();
+            var value = $("#select_equipment option:selected");
+            var td1 = value.text();
             var td2 = $('.td_nav2 input').eq(0).val();
             var td3 = $('.td_nav2 input').eq(1).val();
             var td4 = $('.td_nav2 input').eq(2).val();
@@ -99,6 +88,7 @@ $.get(SERVER_PATH+"/api/fill/checkboxequipment",function(data){
  *                          }
  *  ]
  */
+
 function category_name(){
     var type = $("#select_equipment option:selected");
     var type_name = type.val();
@@ -162,20 +152,18 @@ function btn1(){
     $.ajax({
             type: "post",
             url: SERVER_PATH+'api/fill/equipmentborrowing',
-     
             data: vdata,
             dataType: "json",
             success: function (data) {
                     if(data.code == 200){
                         $('.success_eject2').show();
-                        $('.mask').show();
                     }else{
                         console.log(data);
                         $('.success_eject3').show();
-                        $('.mask').show();
                     }
             },
             error: function (XMLHttpRequest, textStatus, readyState) {
+                alert("数据不正确");
                 $('.success_eject3').show();
                 $('.mask').show();
                 console.log(XMLHttpRequest.status);

@@ -56,6 +56,11 @@ $(function () {
         $('.mask').hide();
     })
 
+    $('.determine').on('click',function (){
+        $('.no-alert').hide();
+        $('.mask').hide();
+    })
+
     /**
      * 方法作用 班级下拉框
      * 请求接口 api/report/classdrop
@@ -184,13 +189,19 @@ $(function () {
                 console.log(data)
                 if (data.code === 200) {
                     console.log(data.msg);
-                } else if (data.code === 100) {
+                    $('.success-alert').show();
+                    $('.mask').show();
+                } else{
                     console.log(data.msg);
+                    $('.no-alert').show();
+                    $('.mask').show();
                 }
 
             },
             error: function (data) {
                 console.log(data.msg);
+                $('.no-alert').show();
+                $('.mask').show();
             }
         })
     })
@@ -198,4 +209,10 @@ $(function () {
 
 });
 
-
+/**
+ * 方法作用 实验室借用填报成功跳转
+ * @author huweichen <github.com/nathaniel-kk>
+ */
+function sucJumpLaborBor(){
+    window.location.href = 'experimental-training-center.html'
+}

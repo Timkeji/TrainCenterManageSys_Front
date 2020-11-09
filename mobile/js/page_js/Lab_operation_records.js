@@ -5,15 +5,14 @@ var SERVER_PATH = 'http://bread.varsion.cn/';
  * @author lizhongzheng <github.com/bixuande>
  */
 var url = window.location.href;
-$(function (){
+$(document).ready(function() {
     console.log(url)
     var form_id = url.split("?")[1]
     console.log(form_id)
     $.get(SERVER_PATH+'api/view/formview?'+form_id,function (data){
         var Str=``;
-        console.log(data.data);
-        for(let i = 0 ; i < data.data.length ; i++){
-
+        console.log(data.data[0].teacher);
+        for(var i = 0 ; i < data.data.length ; i++){
             console.log(data.data[i]);
             Str +=`
                 <input type="text" name=""  disabled value="周次" readonly>

@@ -1,5 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/';
-var code = "asdfasdklfa";
+var code = "asdfasdklfa";  //该js需要code
 
 
 /**
@@ -130,38 +130,43 @@ window.onclick = function(){
         $.get(SERVER_PATH +"/api/fill/selectform?form_id="+ form_id + "&code=" + code,function(data){
             Str = ``;
             console.log(data.data);
-            if(data.data.type_id == 1){
-                var name = "实验室借用申请表单";
-                var url = "Form_view_lab.html?form_id="+data.data[i].form_id;
-            }else if(data.data.type_id == 2){
-                var name = "期末实验教学检查记录表";
-                var url ="Form_view_final.html?form_id="+data.data[i].form_id;
-            }else if(data.data.type_id == 3){
-                var name = "实验室仪器设备借用单";
-                var url ="Form_view_eq.html?form_id="+data.data[i].form_id;
-            }else if(data.data.type_id == 4){
-                var name = "实验室运行记录?form_id="+data.data[i].form_id;
-                var url ="Lab_operation_records.html"
-            }else if(data.data.type_id == 5){
-                var name = "开放实验室使用申请单";
-                var url ="Form_view_open.html?form_id="+data.data[i].form_id;
-            }
-            if(data.data.form_status == "审批中"){
-                var color = "nopass";
-            }else if(data.data.form_status == "已通过"){
-                var color = "pass"
-            }else if(data.data.form_status == "未通过"){
-                var color = "approval"
-            }
-            Str +=`<tr>
+            if(data.data == null){
+                $('#form').empty();
+                $('#form').append(Str);
+            }else {
+                if (data.data.type_id == 1) {
+                    var name = "实验室借用申请表单";
+                    var url = "Form_view_lab.html?form_id=" + data.data.form_id;
+                } else if (data.data.type_id == 2) {
+                    var name = "期末实验教学检查记录表";
+                    var url = "Form_view_final.html?form_id=" + data.data.form_id;
+                } else if (data.data.type_id == 3) {
+                    var name = "实验室仪器设备借用单";
+                    var url = "Form_view_eq.html?form_id=" + data.data.form_id;
+                } else if (data.data.type_id == 4) {
+                    var name = "实验室运行记录?form_id=" + data.data.form_id;
+                    var url = "Lab_operation_records.html"
+                } else if (data.data.type_id == 5) {
+                    var name = "开放实验室使用申请单";
+                    var url = "Form_view_open.html?form_id=" + data.data.form_id;
+                }
+                if (data.data.form_status == "审批中") {
+                    var color = "nopass";
+                } else if (data.data.form_status == "已通过") {
+                    var color = "pass"
+                } else if (data.data.form_status == "未通过") {
+                    var color = "approval"
+                }
+                Str += `<tr>
             <td>${data.data.form_id}</td>
             <td>${name}</td>
             <td><span class=${color}>${data.data.form_status}</span></td>
             <td><a href=${url}><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs chakan">查看</span></a></td>
           </tr>`;
-          console.log(Str);
-          $('#form').empty();
-        $('#form').append(Str);
+                console.log(Str);
+                $('#form').empty();
+                $('#form').append(Str);
+            }
         })
     }
 }
