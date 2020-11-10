@@ -26,7 +26,6 @@ flag = Request['flag']
                Str = `
                 <input type="text"> <span>年</span>
                `
-
                Str =`
                 <tr>
                     <th>序号</th>
@@ -133,19 +132,19 @@ flag = Request['flag']
                 </tr>
                    `
                }
-               for(var j; j < 12 - data.data.length;j++){
+               for(var j = 0; j < 12 - data.data.length;j++){
                    Str +=`
                    <tr>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
                 </tr>
                    `
                }

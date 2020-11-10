@@ -1,40 +1,12 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
-
-// layui.use('laypage', function() {
-//     var laypage = layui.laypage;
-//
-//     //执行一个laypage实例
-//     laypage.render({
-//         elem: 'laypagation',
-//         url: '/demo/table/user/',
-//         curr: 1 //设定初始在第 5 页
-//             ,
-//         limit: 8,
-//         page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-//             layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'curr'] //自定义分页布局
-//                 ,
-//
-//             groups: 1 //只显示 1 个连续页码
-//                 ,
-//             count: 10,
-//             theme: '#1E9FFF',
-//             first: false //不显示首页
-//                 ,
-//             last: false //不显示尾页
-//
-//         }, //注意，这里的 test1 是 ID，不用加 # 号
-//
-//         count: 50 //数据总数，从服务端得到
-//     });
-// });
+var totalPageasd = 2;
 
 
->
 //下拉框渲染
 $(document).ready(function() {
     console.log(SERVER_PATH)
-    $.get('http://bread.varsion.cn/api/supadmin/getlab',function (data){
+    $.get(SERVER_PATH+'/api/supadmin/getlab',function (data){
         console.log(data)
         let Str = ''
         if(data.code == 200){
@@ -55,17 +27,41 @@ $(document).ready(function() {
             alert('下拉框获取失败')
         }
 
-
     })
-
-
 
     })
 
 
 //页面渲染
-    $.get('http://bread.varsion.cn/api/supadmin/getlaballinfo',function (data){
 
+$.ajax({
+    type: "get",
+    cache: true,
+    url:SERVER_PATH+"/api/supadmin/getlaballinfo",
+    dataType: 'json',
+    async: false,
+    //请求成功
+    success: function(data) {
+        console.log(data)
+        totalPageasd = data.result.last_page
+        console.log(data.result.last_page);
+    },
+    //请求失败，包含具体的错误信息
+    error: function(e) {
+    }
+});
+$.jqPaginator('#pagination2', {
+    totalPages: totalPageasd,
+    visiblePages: 8,
+    currentPage: 1,
+    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+    page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+    onPageChange: function(num){
+        console.log(num)
+        $.get(SERVER_PATH+"/api/supadmin/getlaballinfo?page="+num,function (data){
             console.log(data)
             var Str = ''
             for ( var i = 0;i < data.result.data.length; i++){
@@ -79,17 +75,26 @@ $(document).ready(function() {
                                 <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
                             </td>
                         </tr>
+                        <div class="am-container am-u-sm-centered layui-col-md3 " id="laypagation">
+                         </div>
                 `;
             }
             $('#table_list').empty();
             $('#table_list').append(Str);
 
-            //总页数
-            objNumService = data.result.total;
 
 
 
-    })
+
+        })
+
+
+    }
+
+
+
+});
+
 
 
 
@@ -100,7 +105,7 @@ function xialakuangliandong() {
     var type = $("#choose option:selected");
     var lab_name = type.val();
     console.log(lab_name);
-    $.get('http://bread.varsion.cn/api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
+    $.get(SERVER_PATH+'/api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
 
         console.log(data)
         var Str = ''
@@ -136,7 +141,7 @@ function select3(){
         type: "GET",
         cache: false,
         //contentType: "application/json;charset=UTF-8",
-        url:  "http://bread.varsion.cn/api/supadmin/select",
+        url:  SERVER_PATH+"/api/supadmin/select",
         data: {num: a},
         dataType: 'json',
         success:function (data){
