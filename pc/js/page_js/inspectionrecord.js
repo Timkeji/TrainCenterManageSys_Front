@@ -1,34 +1,31 @@
 
 
 var SERVER_PATH = 'http://bread.varsion.cn/'
-var url=location.search;
+var url = location.search;
 var form_id;
 var flag;
 var Request = new Object();
-if(url.indexOf("?")!=-1)
-{
+if (url.indexOf("?") != -1) {
     var str = url.substr(1);
-    strs= str.split("&");
-    for(var i=0;i<strs.length;i++)
-    {
-        Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+    strs = str.split("&");
+    for (var i = 0; i < strs.length; i++) {
+        Request[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
     }
 }
-form_id= Request["form_id"];
+form_id = Request["form_id"];
 flag = Request['flag']
 
-$(document).ready(function (){
-    $.get(SERVER_PATH+'api/supadmin/tearecorddispalyinfo?form_id='+form_id,function (data){
+$(document).ready(function () {
+    $.get(SERVER_PATH + 'api/supadmin/tearecorddispalyinfo?form_id=' + form_id, function (data) {
         console.log(data)
         console.log(data.data.forminfo.length)
-    let Str = ''
+        let Str = ''
         let str = ''
-        if(data.code === 200) {
+        if (data.code === 200) {
 
 
-                if(data.data.forminfo.length ===0)
-                {
-                    Str +=`
+            if (data.data.forminfo.length === 0) {
+                Str += `
                        <tr >
                     <td></td>
                     <td></td>
@@ -84,10 +81,10 @@ $(document).ready(function (){
                     <td></td>
                 </tr>
                      `
-                }
-                else {
-                    for (var i = 0;i<data.data.forminfo.length;i++){
-                    Str +=`
+            }
+            else {
+                for (var i = 0; i < data.data.forminfo.length; i++) {
+                    Str += `
                       <tr>
                     <td>${data.data.forminfo[i].laboratory_id}</td>
                     <td>${data.data.forminfo[i].laboratory_name}</td>
@@ -99,8 +96,8 @@ $(document).ready(function (){
                 </tr>
                 
                      `}
-                    for(var i =0;i < 6 - data.data.forminfo.length;i++){
-                        Str += `
+                for (var i = 0; i < 6 - data.data.forminfo.length; i++) {
+                    Str += `
                         <tr >
                     <td></td>
                     <td></td>
@@ -111,13 +108,13 @@ $(document).ready(function (){
                     <td></td>
                 </tr>
                         `
-                    }
-
                 }
 
+            }
 
 
-            for (var i = 0;i < data.data.reocrd_info.length;i++){
+
+            for (var i = 0; i < data.data.reocrd_info.length; i++) {
                 str = `
          <tr>
                 <td colspan="7">
@@ -128,20 +125,20 @@ $(document).ready(function (){
             </tr>
          `
             }
-            }
+        }
 
 
         $('#this').empty(Str);
         $('#this').append(Str);
         $('#this').append(str);
 
-        if(flag == 1){
+        if (flag == 1) {
             var target = document.getElementsByClassName("getHtml")[0];
 
             target.style.background = "#FFFFFF";
 
             html2canvas(target, {
-                onrendered:function(canvas) {
+                onrendered: function (canvas) {
                     var contentWidth = canvas.width;
                     var contentHeight = canvas.height;
 
@@ -153,7 +150,7 @@ $(document).ready(function (){
                     var position = 0;
                     //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
                     var imgWidth = 595.28;
-                    var imgHeight = 592.28/contentWidth * contentHeight;
+                    var imgHeight = 592.28 / contentWidth * contentHeight;
 
                     var pageData = canvas.toDataURL('image/jpeg', 1.0);
 
@@ -162,19 +159,18 @@ $(document).ready(function (){
                     //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
                     //当内容未超过pdf一页显示的范围，无需分页
                     if (leftHeight < pageHeight) {
-                        pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight );
+                        pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight);
                     } else {
-                        while(leftHeight > 0) {
+                        while (leftHeight > 0) {
                             pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
                             leftHeight -= pageHeight;
                             position -= 841.89;
                             //避免添加空白页
-                            if(leftHeight > 0) {
+                            if (leftHeight > 0) {
                                 pdf.addPage();
                             }
                         }
                     }
-
                     var name = "期末实验室教学检查记录表"+form_id
                     pdf.save(name+".pdf");
                 }

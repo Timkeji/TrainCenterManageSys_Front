@@ -21,7 +21,6 @@ function show() {
                 str += `
                    <tr class="am-text-center am-text-middle">
                             <input type="hidden" name="equipment_id" id="equipment_id" value="${data.data.data[i].equipment_id}">
-                            
                             <td class="am-text-center am-text-middle" id="equipment_name">${data.data.data[i].equipment_name}</td>
                             <td class="am-text-center am-text-middle" id="model">${data.data.data[i].model}</td>
                             <td class="am-text-center am-text-middle" id="number">${data.data.data[i].number}</td>
