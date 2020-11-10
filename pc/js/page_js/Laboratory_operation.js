@@ -30,8 +30,6 @@ $(document).ready(function() {
 
     })
 
-
-<<<<<<< HEAD
 //页面渲染
 
 $.ajax({
@@ -66,19 +64,10 @@ $.jqPaginator('#pagination2', {
             var Str = ''
             for ( var i = 0;i < data.result.data.length; i++){
                 Str += `
-=======
-    //页面渲染
-    $.get(SERVER_PATH + 'api/supadmin/getlaballinfo', function (data) {
-        console.log(data)
-        var Str = ''
-        for (var i = 0; i < data.result.data.length; i++) {
-            Str += `
->>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
                 <tr class="am-text-center am-text-middle">
                             <td class="am-text-center am-text-middle">${data.result.data[i].group}</td>
                             <td class="am-text-center am-text-middle">${data.result.data[i].created_at}</td>
                             <td class="am-text-center am-text-middle">
-                                
                                 <button type="button" class="btn-look" id="btn-look1" onclick="watch(this)">查看</button>
                                 <button type="button" class="but-use" onclick="dc_getmes(this)">导出</button>
                             </td>
@@ -89,12 +78,9 @@ $.jqPaginator('#pagination2', {
         }
         $('#table_list').empty();
         $('#table_list').append(Str);
-
-<<<<<<< HEAD
-=======
         //总页数
         objNumService = data.result.total;
->>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
+
 
 
 
@@ -118,12 +104,9 @@ function xialakuangliandong() {
     var type = $("#choose option:selected");
     var lab_name = type.val();
     console.log(lab_name);
-<<<<<<< HEAD
     $.get(SERVER_PATH+'/api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
 
-=======
-    $.get(SERVER_PATH + 'api/supadmin/getlaboperationrecords?lab_name=' + lab_name, function (data) {
->>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
+
         console.log(data)
         var Str = ''
         for (var i = 0; i < data.result.data.length; i++) {
@@ -158,15 +141,10 @@ function select3() {
         type: "GET",
         cache: false,
         //contentType: "application/json;charset=UTF-8",
-<<<<<<< HEAD
+
         url:  SERVER_PATH+"/api/supadmin/select",
         data: {num: a},
-=======
 
-        url: SERVER_PATH + "api/supadmin/select",
-        data: { num: a },
-
->>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
         dataType: 'json',
         success: function (data) {
             if (data.code == 200) {
