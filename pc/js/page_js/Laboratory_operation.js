@@ -1,12 +1,15 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
+
 //下拉框渲染
-$(document).ready(function () {
-    $.get(SERVER_PATH + 'api/supadmin/getlab', function (data) {
+$(document).ready(function() {
+    console.log(SERVER_PATH)
+    $.get('http://bread.varsion.cn/api/supadmin/getlab',function (data){
         console.log(data)
         let Str = ''
-        if (data.code == 200) {
-            Str = `
+        if(data.code == 200){
+                Str = `
+
                  <select id="choose" onchange="xialakuangliandong()">
                         <option value="null">--请选择--</option>
                         `
@@ -21,12 +24,16 @@ $(document).ready(function () {
             alert('下拉框获取失败')
         }
 
+
+    })
+
+
+
     })
 
 
     //页面渲染
     $.get(SERVER_PATH + 'api/supadmin/getlaballinfo', function (data) {
-
         console.log(data)
         var Str = ''
         for (var i = 0; i < data.result.data.length; i++) {
@@ -49,10 +56,12 @@ $(document).ready(function () {
         objNumService = data.result.total;
 
 
+
     })
 
 
-})
+
+
 
 //下拉联动
 function xialakuangliandong() {
@@ -60,7 +69,6 @@ function xialakuangliandong() {
     var lab_name = type.val();
     console.log(lab_name);
     $.get(SERVER_PATH + 'api/supadmin/getlaboperationrecords?lab_name=' + lab_name, function (data) {
-
         console.log(data)
         var Str = ''
         for (var i = 0; i < data.result.data.length; i++) {
@@ -95,8 +103,10 @@ function select3() {
         type: "GET",
         cache: false,
         //contentType: "application/json;charset=UTF-8",
+
         url: SERVER_PATH + "api/supadmin/select",
         data: { num: a },
+
         dataType: 'json',
         success: function (data) {
             if (data.code == 200) {
@@ -136,5 +146,8 @@ function watch(a) {
 //导出
 function dc_getmes(a) {
     var group = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "lab_formRecord.html?group=" + group + "&&" + "flag=" + 1;
+    window.location.href = "lab_formRecord.html?group="+group+"&&"+"flag="+1;
 }
+
+
+

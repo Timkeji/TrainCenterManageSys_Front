@@ -120,8 +120,8 @@ $.ajax({
                             }
                         }
                     }
-                    var name = "实验室借用申请" + form_id
-                    pdf.save(name + ".pdf");
+                    var name = "实验室借用申请"+form_id
+                    pdf.save(name+".pdf");
                 }
             })
         }

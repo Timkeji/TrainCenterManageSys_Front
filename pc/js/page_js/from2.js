@@ -149,8 +149,10 @@ $.ajax({
                             }
                         }
                     }
-                    var name = "实验室仪器设备借用单" + form_id
-                    pdf.save(name + ".pdf");
+
+                        var name = "实验室仪器设备借用单"+form_id
+                    pdf.save(name+".pdf");
+
                 }
             })
         }

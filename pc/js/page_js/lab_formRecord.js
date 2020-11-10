@@ -14,14 +14,18 @@ if (url.indexOf("?") != -1) {
 group = Request["group"];
 flag = Request['flag']
 
+
 $(document).ready(function () {
-    $.get(SERVER_PATH + 'api/supadmin/getlaball?group=' + group, function (data) {
+    $.get(SERVER_PATH + 'api/supadmin/getlaball?group='+ group, function (data) {
+
         console.log(data)
         console.log(flag)
         if (data.code == 200) {
             let Str = ''
-            if (data.data.length == 0) {
-                Str = `
+
+           if(data.data.length == 0){
+               
+               Str =`
                 <tr>
                     <th>序号</th>
                     <th>周次</th>
@@ -126,9 +130,10 @@ $(document).ready(function () {
                     <td><input type="text" readonly value="${data.data[i].remark}" ></td>
                 </tr>
                    `
-                }
-                for (var i; i < 12 - data.data.length; i++) {
-                    Str += `
+
+               }
+               for(var j; j < 12 - data.data.length;j++){
+                   Str +=`
                    <tr>
                     <td> <input type="text" readonly></td>
                     <td> <input type="text" readonly></td>
@@ -188,8 +193,9 @@ $(document).ready(function () {
                                 }
                             }
                         }
-                        var name = "实验室运行记录表" + group
-                        pdf.save(name + ".pdf");
+
+                        var name = "实验室运行记录表"+group
+                        pdf.save(name+".pdf");
                     }
                 })
             }
