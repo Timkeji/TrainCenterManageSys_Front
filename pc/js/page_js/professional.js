@@ -1,7 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
-
-
 var totalPageasd = 2;
 
 $.ajax({
@@ -52,22 +50,18 @@ $.jqPaginator('#pagination2', {
 
 ///下拉框展示的系部
 $(document).ready(function (){
-    $.get(SERVER_PATH+'/api/supadmin/showdepartment',function (data){
+    $.get(SERVER_PATH+'/api/supadmin/showdepartmentall',function (data){
         let Str=``;
 
-        for (var i= 0;i<data.data.data.length;i++){
+        for (var i= 0;i<data.data.length;i++){
             Str += `
-             <option value="${data.data.data[i].department_id}"  >&nbsp;&nbsp;${data.data.data[i].department_name} </option>    
+             <option value="${data.data[i].department_id}"  >&nbsp;&nbsp;${data.data[i].department_name} </option>    
             `
         }
         $('#add_class').empty();
         $('#add_class').append(Str);
-        // $('#modify_op_class').empty();
-        // $('#modify_op_class').append(Str);
     })
 })
-
-
 ///实现增加班级
 function classAdd() {
     var class_name=document.getElementById("add_name_class").value;
@@ -85,12 +79,10 @@ function classAdd() {
             else if (data.code == 100){
                 console.log("添加班级失败")
             }
+            location.reload()
         }
     })
 }
-
-
-
 /////删除班级
 function classDelete(id) {
     x = confirm("确定删除此班级吗？")
@@ -106,11 +98,11 @@ function classDelete(id) {
                 else if (data.code == 100){
                     console.log("删除班级失败")
                 }
+                location.reload()
             }
         })
     }
 }
-
 //////修改班级
 function classDedit() {
     var class_name=document.getElementById("modify_cla_name").value;
@@ -143,12 +135,12 @@ function modifyClass(id){
         success: function (data) {
             if(data.code == 200) {
 ////套娃套进来显示，实现下拉框里面的数据和数据库对应起来
-                $.get(SERVER_PATH+'/api/supadmin/showdepartment',function (data){
-                    let Str=``;
+                $.get(SERVER_PATH+'/api/supadmin/showdepartmentall',function (data){
 
-                    for (var i= 0;i<data.data.data.length;i++){
+                    let Str=``;
+                    for (var i= 0;i<data.data.length;i++){
                         Str += `
-             <option value="${data.data.data[i].department_id}"  >&nbsp;&nbsp;${data.data.data[i].department_name} </option>    
+             <option value="${data.data[i].department_id}"  >&nbsp;&nbsp;${data.data[i].department_name} </option>    
             `
                     }
                     $('#modify_op_class').empty();
