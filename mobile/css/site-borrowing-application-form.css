@@ -44,7 +44,7 @@ td {
     padding: 0.5rem 0 !important;
 }
 
-.success-alert {
+.success-alert,.failure-alert {
     top: 8rem !important;
 }
 

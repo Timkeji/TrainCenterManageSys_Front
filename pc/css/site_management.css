@@ -357,7 +357,7 @@ input {
 }
 
 #movedalert1 {
-    height: 420;
+    height: 420px;
 }
 
 
@@ -807,7 +807,7 @@ input {
         display: block;
     }
     #movedalert1 {
-        height: 420;
+        height: 420px;
     }
 }
 
@@ -866,6 +866,25 @@ input {
         display: block;
     }
     #movedalert1 {
-        height: 420;
+        height: 420px;
     }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.current {
+    background: #337ab7 !important;
+    color: #fff !important;
 }

@@ -196,8 +196,6 @@ function modifyClass(id){
 
 
 
-
-
 findClass();
 /////查询系别管理
 function findClass(){

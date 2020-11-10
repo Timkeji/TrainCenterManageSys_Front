@@ -81,7 +81,7 @@ select {
 
 
 /* 弹框 */
-.success-alert {
+.success-alert,.failure-alert {
     display: none;
     position: absolute !important;
     z-index: 19891016;

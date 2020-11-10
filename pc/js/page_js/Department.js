@@ -53,6 +53,7 @@ $.jqPaginator('#pagination2', {
     }
 });
 
+
 ///实现增加系部
 function departmentAdd() {
     var department_name=document.getElementById("add_dep_name").value;
