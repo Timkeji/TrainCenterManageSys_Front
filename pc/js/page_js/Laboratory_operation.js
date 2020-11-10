@@ -11,19 +11,18 @@ $(document).ready(function() {
         let Str = ''
         if(data.code == 200){
                 Str = `
+
                  <select id="choose" onchange="xialakuangliandong()">
                         <option value="null">--请选择--</option>
                         `
-
-                    for (var i = 0;i < data.data.length; i++){
-                        Str += ` <option value="${data.data[i]}">${data.data[i]}</option>`
-                    }
-                Str +=`</select>`
-
+            for (var i = 0; i < data.data.length; i++) {
+                Str += ` <option value="${data.data[i]}">${data.data[i]}</option>`
+            }
+            Str += `</select>`
             $('#choose1').empty();
             $('#choose1').append(Str);
         }
-        if (data.code == 100){
+        if (data.code == 100) {
             alert('下拉框获取失败')
         }
 
@@ -32,6 +31,7 @@ $(document).ready(function() {
     })
 
 
+<<<<<<< HEAD
 //页面渲染
 
 $.ajax({
@@ -66,6 +66,14 @@ $.jqPaginator('#pagination2', {
             var Str = ''
             for ( var i = 0;i < data.result.data.length; i++){
                 Str += `
+=======
+    //页面渲染
+    $.get(SERVER_PATH + 'api/supadmin/getlaballinfo', function (data) {
+        console.log(data)
+        var Str = ''
+        for (var i = 0; i < data.result.data.length; i++) {
+            Str += `
+>>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
                 <tr class="am-text-center am-text-middle">
                             <td class="am-text-center am-text-middle">${data.result.data[i].group}</td>
                             <td class="am-text-center am-text-middle">${data.result.data[i].created_at}</td>
@@ -78,10 +86,15 @@ $.jqPaginator('#pagination2', {
                         <div class="am-container am-u-sm-centered layui-col-md3 " id="laypagation">
                          </div>
                 `;
-            }
-            $('#table_list').empty();
-            $('#table_list').append(Str);
+        }
+        $('#table_list').empty();
+        $('#table_list').append(Str);
 
+<<<<<<< HEAD
+=======
+        //总页数
+        objNumService = data.result.total;
+>>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
 
 
 
@@ -105,11 +118,15 @@ function xialakuangliandong() {
     var type = $("#choose option:selected");
     var lab_name = type.val();
     console.log(lab_name);
+<<<<<<< HEAD
     $.get(SERVER_PATH+'/api/supadmin/getlaboperationrecords?lab_name='+lab_name,function (data){
 
+=======
+    $.get(SERVER_PATH + 'api/supadmin/getlaboperationrecords?lab_name=' + lab_name, function (data) {
+>>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
         console.log(data)
         var Str = ''
-        for ( var i = 0;i < data.result.data.length; i++){
+        for (var i = 0; i < data.result.data.length; i++) {
             Str += `
                 <tr class="am-text-center am-text-middle">
                             <td class="am-text-center am-text-middle">${data.result.data[i].group}</td>
@@ -134,21 +151,28 @@ function xialakuangliandong() {
 }
 
 //搜索
-function select3(){
+function select3() {
     var a = document.getElementById('name').value
     console.log(a)
     $.ajax({
         type: "GET",
         cache: false,
         //contentType: "application/json;charset=UTF-8",
+<<<<<<< HEAD
         url:  SERVER_PATH+"/api/supadmin/select",
         data: {num: a},
+=======
+
+        url: SERVER_PATH + "api/supadmin/select",
+        data: { num: a },
+
+>>>>>>> 80529ea30519f689047a4621df29a2818c6bc0ba
         dataType: 'json',
-        success:function (data){
-            if(data.code == 200){
+        success: function (data) {
+            if (data.code == 200) {
                 console.log(data)
                 let Str = ''
-                    Str += `
+                Str += `
                 <tr class="am-text-center am-text-middle">
                             <td class="am-text-center am-text-middle">${data.data.group}</td>
                             <td class="am-text-center am-text-middle">${data.data.created_at}</td>
@@ -173,17 +197,16 @@ function select3(){
 }
 
 //查看
-function watch(a){
-    console.log( $(a).parent().parent().children().eq(0).text())
+function watch(a) {
+    console.log($(a).parent().parent().children().eq(0).text())
     var group = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "lab_formRecord.html?group="+group;
+    window.location.href = "lab_formRecord.html?group=" + group;
 }
 
 //导出
 function dc_getmes(a) {
     var group = $(a).parent().parent().children().eq(0).text();
     window.location.href = "lab_formRecord.html?group="+group+"&&"+"flag="+1;
-
 }
 
 

@@ -71,6 +71,7 @@ function departmentAdd() {
             else if (data.code == 100){
                 console.log("添加系部失败")
             }
+            location.reload()
         }
     })
 }
@@ -90,6 +91,7 @@ function departmentDelete(id) {
                 else if (data.code == 100){
                     console.log("删除系部失败")
                 }
+                location.reload()
             }
         })
     }
@@ -214,8 +216,5 @@ function findDepartment(){
                 })
             }
         });
-
-
-
     })
 }
