@@ -7,27 +7,30 @@
  */
 var url = window.location.href;
 $(document).ready(function () {
-    var form_id = url.split('?')[1];
-    console.log(form_id);
+    var form_id = url.split('&&')[1];
+    var status = url.split('&&')[2];
+    console.log(status)
     $.ajax({
         type: "GET",
-        url: "http://bread.varsion.cn/api/approval/reshowall?code=xxxx&form_id=" + form_id,
+        url: "http://bread.varsion.cn/api/approval/reshowall?code=xxxx&" + form_id,
         success: function (data) {
             if (data.code === 200) {
                 let timeStr = ``
                 let result_str = ``
-                result_str += `不通过原因:
-            ${data.data.other_information[0].reason} `
+                if (status == 1) {
+                    result_str += `审批通过`
+                } else {
+                    result_str += `不通过原因:
+            ${data.data.other_information_oll[0].reason} `
+                }
                 $(".no_result").empty().append(result_str)
                 timeStr = `
-<p> ${data.data.other_information[0].status_name}</p>
-                                    <p>实验室仪器设备借用单</p>
+<p> ${data.data.other_information_oll[0].status_name}</p>
+                                    <p>开放实验室借用单</p>
                                     <p>${data.data.open_laboratory_loan[0].created_at}</p>`
                 $(".labLoan_title").empty().append(timeStr)
                 var str = `<form>
                               <table>
-                                    <p> ${data.data.open_laboratory_loan[0].created_at}</p>
-                                <tr>
                                 <tr>
                                   <td colspan="2">使用原因</td>
                                   <td colspan="2">${data.data.open_laboratory_loan[0].reason_use}</td>
@@ -51,12 +54,12 @@ $(document).ready(function () {
                                     <td>联系电话</td>
                                     <td>承担工作</td>
                                   </tr>`
-                for (var i = 0; i < data.data.OpenLaboratoryStudentList.length; i++) {
+                for (var i = 0; i < data.data.open_laboratory_student_list.length; i++) {
                     str += `<tr>
-                                <td>${data.data.OpenLaboratoryStudentList[i].student_name}</td>
-                                <td>${data.data.OpenLaboratoryStudentList[i].student_id}</td>
-                                <td>${data.data.OpenLaboratoryStudentList[i].phone}</td>
-                                <td>${data.data.OpenLaboratoryStudentList[i].work}</td>
+                                <td>${data.data.open_laboratory_student_list[i].student_name}</td>
+                                <td>${data.data.open_laboratory_student_list[i].student_id}</td>
+                                <td>${data.data.open_laboratory_student_list[i].phone}</td>
+                                <td>${data.data.open_laboratory_student_list[i].work}</td>
                               </tr>`
                     $('.labLoan_form').empty().append(str);
                 }
@@ -71,9 +74,7 @@ $(document).ready(function () {
 })
 $(function () {
 // 获取状态status
-    console.log(url_l)
-    console.log(url_l.charAt(url_l.length - 1))
-    var status = url_l.charAt(url_l.length - 1)
+    var status = url.charAt(url.length - 1)
     if (status == 1) {
         $(".hty_ok").show()
     } else {

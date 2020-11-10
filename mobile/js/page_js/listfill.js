@@ -1,6 +1,7 @@
 window.onload=function(){
- back=function(){
-        window.location.href = '../html/list_forms.html';
-    }
-    　　
+   // function back(){
+   //      // window.location.href = '../../html/list_forms.html';
+   //   console.log('123')
+   //  }
+   //  　　
 }

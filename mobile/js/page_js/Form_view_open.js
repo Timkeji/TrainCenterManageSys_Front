@@ -25,11 +25,11 @@ window.onload = function () {
     Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
     }
     }
-    formid= Request["formid"];
+    formid= Request["form_id"];
     console.log(formid);
         var SERVER_PATH = 'http://bread.varsion.cn/'
     
-    console.log(a)
+
     
     
     

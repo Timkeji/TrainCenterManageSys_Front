@@ -49,9 +49,6 @@
             <td id="op-class">
               <select name="class_name" id="c_name">
                 <option value="" disabled selected hidden>请输入~</option>
-<!--&lt;!&ndash;                <option value="1">数字媒体技术19202</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                <option value="2">数字媒体技术19203</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                <option value="3">数字媒体技术19204</option>&ndash;&gt;-->
               </select>
               <p></p>
             </td>
@@ -108,38 +105,29 @@
         <p class="success">审批提交成功</p>
       </div>
     </div>
-    <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine">确定</a></div><span
+    <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine" onclick="sucJumpLaborBor()">确定</a></div><span
       class="layui-layer-resize"></span>
   </div>
   <div class="mask">
   </div>
 
 
+<!--  失败弹框-->
+  <div class="layui-layer  no-alert" type="page" times="2" showtime="0"
+       contype="string">
+    <div class="layui-layer-content content">
+      <div>
+        <div><img src="../icon/icon/no.png" alt=""></div>
+        <p class="success">审批提交失败</p>
+      </div>
+    </div>
+    <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine">确定</a></div><span
+          class="layui-layer-resize"></span>
+  </div>
 
-
-
-
-
-
-  <!-- 实验室运行记录查询 -->
-  <!-- <script src="../js/operation-record-inspection.js"></script> -->
-
-  <!-- <script>
-//由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
-;!function(){
-  var layer = layui.layer
-  ,form = layui.form;
-  
-  // layer.msg('Hello World');
-  $(".layui-btn-danger").click(function(){
-    alert("123")
-  })
-}();
-</script>  -->
 </body>
 <!-- js的引用 -->
 <script src="../layui/layui.all.js"></script>
-<!-- <script src="../js/test.js"></script> -->
 <script src="../js/jquery-1.12.3.js"></script>
 <script src="../js/page_js/operation-record-inspection.js"></script>
 <script src="../js/jquery-1.12.3.js"></script>

@@ -1,38 +1,36 @@
 /**
  * 回显实验室借用申请单
  * @param [
- *	'form_id':表单编号
+ *    'form_id':表单编号
  *  ]
  *   @author yangsiqi <github.com/Double-R111>
  */
+var url = window.location.href;
 $(function () {
-    var url = window.location.href;
-
     $(document).ready(function () {
-        var form_id = url.split('?')[1];
-        // console.log(form_id);
+        var form_id = url.split('&&')[1];
+        var status = url.split('&&')[2];
         $.ajax({
             type: "GET",
-            url: "http://bread.varsion.cn/api/approval/reshowall?code=xxxx&form_id=" + form_id,
+            url: "http://bread.varsion.cn/api/approval/reshowall?code=xxxx&" + form_id,
             success: function (data) {
-                console.log(data);
                 if (data.code === 200) {
-                    // var str = `<p>实验室借用申请单</p>
-                    // <p>${data.data[0].created_at}</p>`
-                    // $(".labLoan_title").empty().append(str);
                     let timeStr = ``
                     let result_str = ``
-                    result_str += `不通过原因:
-            ${data.data.other_information[0].reason} `
+                    if (status == 1) {
+                        result_str += `审批通过`
+                    } else {
+                        result_str += `不通过原因:
+            ${data.data.other_information_ll[0].reason} `
+                    }
                     $(".no_result").empty().append(result_str)
                     timeStr = `
-<p> ${data.data.other_information[0].status_name}</p>
+<p> ${data.data.other_information_ll[0].status_name}</p>
              <p>实验室借用申请表单</p>
              <p>${data.data.laboratory_loan[0].created_at}</p>`
                     $(".labLoan_title").empty().append(timeStr)
                     str = `<form >
                         <table>
-                        <p>${data.data.other_information[0].status_name}</p>
                             <tr>
                               <td>申请实验室名称</td>
                               <td>${data.data.laboratory_loan[0].laboratory_name}</td>
@@ -47,7 +45,7 @@ $(function () {
                             </tr>
                             <tr>
                               <td>学习班级及人数</td>
-                              <td>${data.data.laboratory_loan[0].class_name} ${data.data[0].number}人</td>
+                              <td>${data.data.laboratory_loan[0].class_name} ${data.data.laboratory_loan[0].number}人</td>
                             </tr>
                             <tr>
                               <td>实验目的</td>
@@ -55,8 +53,8 @@ $(function () {
                             </tr>
                             <tr>
                               <td>具体使用时间</td>
-                              <td><span>${data.data.laboratory_loan[0].start_time}-${data.data[0].end_time}</span><br />
-                                <span>第${data.data.laboratory_loan[0].start_class}至第${data.data[0].end_class}节课</span>
+                              <td><span>${data.data.laboratory_loan[0].start_time}-${data.data.laboratory_loan[0].end_time}</span><br />
+                                <span>第${data.data.laboratory_loan[0].start_class}至第${data.data.laboratory_loan[0].end_class}节课</span>
                               </td>
                             </tr>
                             <tr>
@@ -75,6 +73,7 @@ $(function () {
                             </tr>
                       </table>
                     </form>`
+                    console.log(str)
                     $('.labLoan_form').empty().append(str);
                 }
                 if (data.code === 100) {
@@ -88,9 +87,7 @@ $(function () {
 })
 $(function () {
 // 获取状态status
-    console.log(url_l)
-    console.log(url_l.charAt(url_l.length - 1))
-    var status = url_l.charAt(url_l.length - 1)
+    var status = url.charAt(url.length - 1)
     if (status == 1) {
         $(".hty_ok").show()
     } else {

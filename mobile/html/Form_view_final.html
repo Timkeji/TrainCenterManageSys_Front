@@ -18,7 +18,7 @@
 
     <!-- 头部：标题+返回键 -->
     <div class="app_header">
-        <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
+        <a href="#" class="back_btn" ><i class="layui-icon  layui-icon-left" onclick="back()"></i></a>
         <a href="#" class="title">期末表单编号</a>
     </div>
     <!-- 按钮：审批+历史 -->
@@ -48,62 +48,7 @@
                 <tbody>
 
                 </tbody>
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
 
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>无</td>-->
-<!--                    <td>....</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td>无</td>-->
-<!--                    <td><span class="layui-btn layui-btn-radius layui-btn-normal layui-btn-xs " onclick="appearance()">详情</span></td>-->
-
-<!--                </tr>-->
             </table>
         </form>
         <div class="formtjdate">
@@ -114,20 +59,7 @@
 <div class="detailed_page">
 
     <form id="form_view_id">
-<!--        <input type="text" name="" id="" disabled value="实验室编号">-->
-<!--        <input type="text" name="" id="" disabled value="203">-->
-<!--        <input type="text" name="" id="" disabled value="实验室">-->
-<!--        <input type="text" name="" id="" disabled value="人工智能实验室">-->
-<!--        <input type="text" name="" id="" disabled value="课程">-->
-<!--        <input type="text" name="" id="" disabled value="203">-->
-<!--        <input type="text" name="" id="" disabled value="教师">-->
-<!--        <input type="text" name="" id="" disabled value="课程">-->
-<!--        <input type="text" name="" id="" disabled value="教学运行情况">-->
-<!--        <input type="text" name="" id="" disabled value="课程">-->
-<!--        <input type="text" name="" id="" disabled value="实验室进行情况">-->
-<!--        <input type="text" name="" id="" disabled value="课程">-->
-<!--        <input type="text" name="" id="" disabled value="备注">-->
-<!--        <input type="text" name="" id="" disabled value="无">-->
+
     </form>
 </div>
 
@@ -139,5 +71,10 @@
     <script src="../js/page_js/Form_view_final.js"></script>
 
 </body>
-
+<script>
+    back=function(){
+        // console.log('1233')
+        window.location.href = '../html/list_forms.html';
+    }
+</script>
 </html>

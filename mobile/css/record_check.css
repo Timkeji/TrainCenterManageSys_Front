@@ -104,6 +104,19 @@ td button {
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
 }
 
+.no_eject {
+    z-index: 99999;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
 .eject_img {
     margin: 0.6rem 0;
     display: block;
@@ -119,7 +132,24 @@ td button {
     font-weight: 500;
 }
 
+.no_eject p {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
 .success_eject button {
+    width: 2rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #0088FE;
+    color: #FFFFFF;
+    font-size: 0.6rem;
+    outline: none;
+    border: 1px solid #0088FE;
+    margin: 0.4rem 0;
+}
+
+.no_eject button {
     width: 2rem;
     height: 0.9rem;
     line-height: 0.9rem;
@@ -239,6 +269,18 @@ td button {
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+/* 弹框 */
+.no-alert{
+    display: none;
+    position: absolute !important;
+    z-index: 19891016;
+    top: 10rem !important;
+    left: 2.35rem !important;
+    text-align: center;
+    border-radius: 6px !important;
+
 }
 
 .add_bu {
