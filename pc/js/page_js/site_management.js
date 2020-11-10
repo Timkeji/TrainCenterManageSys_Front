@@ -1,3 +1,4 @@
+
 var SERVER_PATH = 'http://bread.varsion.cn/'
 $(function (){
     showInfo();
@@ -208,6 +209,7 @@ function findInfo(){
         },
         error: function (e) {
         }
+
     });
 //根据获取到的展示总页数分页展示
     $.jqPaginator('#pagination2', {
