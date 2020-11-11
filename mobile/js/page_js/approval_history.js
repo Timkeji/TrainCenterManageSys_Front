@@ -17,27 +17,16 @@ $(function () {
                         } else {
                             flag = 0;
                         }
-                        //         str += `<tr>
-                        // <td>${data.data[i].form_id}</td>
-                        // <td>${data.data[i].type_name}</td>
-                        // <td>${data.data[i].applicant_name}</td>
-                        // `;
                         if (data.data[i].type_name == "实验室借用申请表单") {
                             str += `<tr onclick ="location.href='Hty_labLoan.html?&&form_id=${data.data[i].form_id}&&status=${flag}'">
                   `
                         } else if (data.data[i].type_name == "实验室仪器设备借用单") {
                             str += `<tr onclick ="location.href='Hty_labInstr.html?&&form_id=${data.data[i].form_id}&&status=${flag}'">
                                 `
-
-
-                            //                 str += `<tr ><td class="status_name"><a href="" class="show">${data.data[i].status_name}</a></td>
-                            // `
                         } else if (data.data[i].type_name == "开放实验室使用申请单") {
 
                             str += `<tr onclick ="location.href='Hty_labOpen.html?&&form_id=${data.data[i].form_id}&&status=${flag}'">
                                 `
-                            //                 str += `<tr><td class="status_name"><a href="Hty_labOpen.html?&&form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
-                            //   `
                         }
 
                         str += `
@@ -98,25 +87,12 @@ $(function () {
                             } else {
                                 flag = 0;
                             }
-                //             str += `<tr>
-                //   <td>${data.data[i].form_id}</td>
-                //   <td>${data.data[i].type_name}</td>
-                //   <td>${data.data[i].applicant_name}</td>
-                // `;
                             if (data.data[i].type_name == "实验室借用申请表单") {
                                 str += `<tr onclick="location.href='Hty_labLoan.html?form_id=${data.data[i].form_id}&&status=${flag}'" class="show">`
-
-//                                 str += `<td class="status_name"><a href="Hty_labLoan.html?form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             } else if (data.data[i].type_name == "实验室仪器设备借用单") {
                                 str += `<tr onclick="location.href='Hty_labInstr.html?form_id=${data.data[i].form_id}&&status=${flag}'" class="show">`
-//                                 str += `<td class="status_name"><a href="Hty_labInstr.html?form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             } else if (data.data[i].type_name == "开放实验室使用申请单") {
                                 str += `<tr onclick="location.href='Hty_labOpen.html?form_id=${data.data[i].form_id}&&status=${flag}'" class="show">`
-
-//                                 str += `<td class="status_name"><a href="Hty_labOpen.html?form_id=${data.data[i].form_id}&&status=${flag}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             }
                         })         
                 str += `
@@ -127,14 +103,11 @@ $(function () {
                   </tr>
                 `;
                     }
-             
-
                     $('#form_history').empty().append(str);
                 }
             })
         })
     }
-
 
     /**
      * 通过表单类型查询表单
@@ -192,25 +165,16 @@ $(function () {
                                 str += `
                                 <tr onclick="location.href='Hty_labLoan.html?&&form_id=${data.data[i].form_id}'">
                                 `
-//                                 str += `<td class="status_name"><a href="Hty_labLoan.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             } else if (data.data[i].type_name == "实验室仪器设备借用单") {
                                 str += `
                                 <tr onclick="location.href='Hty_labInstr.html?&&form_id=${data.data[i].form_id}'">
                                 `
-                               
-//                                 str += `<td class="status_name"><a href="Hty_labInstr.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             } else if (data.data[i].type_name == "开放实验室使用申请单") {
                                 str += `
                                 <tr onclick="location.href='Hty_labOpen.html?&&form_id=${data.data[i].form_id}'">
                                 `
-                                
-//                                 str += `<td class="status_name"><a href="Hty_labOpen.html?&&form_id=${data.data[i].form_id}" class="show">${data.data[i].status_name}</a></td>
-// </tr>`
                             }
                         })
-
                                 str += `
                                    <td>${data.data[i].form_id}</td>
                                    <td>${data.data[i].type_name}</td>
@@ -219,8 +183,6 @@ $(function () {
                                    </tr>
                                   `;
                                 $('#form_history').empty().append(str);
-
-
                     }
                 }
             })
