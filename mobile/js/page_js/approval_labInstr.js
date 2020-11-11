@@ -1,3 +1,4 @@
+
 /**
  * 实验室仪器设备借用单审核
  * @author DuJingWen<github.com/DJWKK>
@@ -125,4 +126,5 @@ $(function(){
     $(".pop").show()
     $("#ok_dialog").show()
 })
+
 })

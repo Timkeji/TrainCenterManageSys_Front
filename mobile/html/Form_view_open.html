@@ -35,10 +35,10 @@
          <div class="lablinear"></div>
          <div class="labcircle  "></div>
     
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
+         <div class="lablinear"></div>
+         <div class="labcircle  "></div>
+         <div class="lablinear"></div>
+         <div class="labcircle "></div>
     </div>
     <div class="people_box">
           <!-- <span>提交成功</span>
@@ -58,70 +58,15 @@
 
 <form action="">
     <table  border="1">
-       
-        <tr>
-            <td colspan="4" style="height: 200px;" ><span style="margin-bottom: 20px;">不通过原因</span> <br>123456</td>
-        </tr>
-        <tr>
-           <td >使用原因</td>
-           <td colspan="3"></td>
-        </tr>
-        <tr>
-            <td >项目名称</td>
-            <td colspan="3">无</td>
-         </tr>
-         <tr>
-            <td >使用时间</td>
-            <td colspan="3">2020年10月10日至10月11日</td>
-         </tr>
+        <tbody id="formtable">
      
-    
-        <tr>
-            <td colspan="4" >申请人名单 </td>
-        </tr>
-        <tr>
-            <td >姓名</td>
-            <td>学号</td>
-            <td>联系电话</td>
-            <td>承担工作</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+    </tbody>
+        <tbody id="forminfo">
+       
+       
+    </tbody>
     </table>
+
 </form>
 <div class="formtjdate">
     <p>表单提交日期    2020/10/10</p>
@@ -133,6 +78,14 @@
   <script src="../layui/lay/modules/jquery.js"></script>
   <script src="../js/page_js/test.js"></script>
   <script src="../js/page_js/listfill.js"></script>
-</body>
+  <script src="../js/jquery-1.12.3.js"></script>
+  <script src="../js/page_js/Form_view_open.js"></script>
 
+</body>
+<script>
+    back=function(){
+        // console.log('1233')
+        window.location.href = '../html/list_forms.html';
+    }
+</script>
 </html>

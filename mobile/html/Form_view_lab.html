@@ -19,7 +19,7 @@
    <!-- 头部：标题+返回键 -->
    <div class="app_header">
     <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
-    <a href="#" class="title">实验室实验实训中心</a>
+    <a href="#" class="title">实验室实训中心</a>
 </div>
 <!-- 按钮：审批+历史 -->
 <div class="app_middle">
@@ -32,13 +32,13 @@
 <div class="Approve_graph  layui-col-xs12">
     <div class="picture_box">
          <div class="complete"></div>
-         <div class="lablinear"></div>
+         <div class="lablinear " ></div>
          <div class="labcircle  "></div>
     
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
-         <div class="not_completed lablinear"></div>
-         <div class="labcircle not_completed "></div>
+         <div class=" lablinear"></div>
+         <div class="labcircle "></div>
+         <div class="lablinear"></div>
+         <div class="labcircle  "></div>
     </div>
     <div class="people_box">
           <!-- <span>提交成功</span>
@@ -56,52 +56,9 @@
 <div class="contant ">
 <p class="formheader" >实验室借用申请</p>
 <!-- <input type="text" name="" id="formdate" value="2020 年 10 月 11日 " disabled> -->
-<p class="formdate ">2020 年 10 月 11日 </p>
+<p class="formdate "> </p>
 <form action="">
-    <table  border="1">
-        <tr>
-            <td >申请实验室名称</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td >实验室编号</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td >学习班级</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td >人数</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td >实验目的</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td >具体使用时间</td>
-            <td >2020年10月10日至10月11日<br>第一节课至第四节课</td>      
-        </tr>
-        <tr>
-            <td >实验室课程名称</td>
-            <td >2</td>      
-        </tr>
-        <tr>
-            <td colspan="3" >指导老师（申请人）承诺：<br>
-                1. 借用教师为借用期间实验室安全责任人，
-                必须保证实验室的安全。切实履行实验室用
-                电用水防盗防火安全。对实验人员进行安全
-                教育，保证实验室人员人身安全。<br>
-                2. 对实验人员进行必要仪器使用和实验技能
-                指导实验操作教育，保证实验操作规范及设
-                备正常。<br>
-                3. 督促实验人员按时完成实验项目。
-                
-                   我已阅知实验室安全责任要求，保证切实履
-                行实验室安全责任。<br>
-                申请人：XX   <br> 电话：12345678911 <br>  2020年12月31日 </td>
-        </tr>
+    <table  border="1" id="forminfo">
     </table>
 </form>
 <div class="formtjdate">
@@ -114,7 +71,16 @@
   <script src="../layui/lay/modules/jquery.js"></script>
   <script src="../js/page_js/test.js"></script>
   <script src="../js/page_js/listfill.js"></script>
+  <script src="../js/jquery-1.12.3.js"></script>
+  <script src="../js/page_js/Form_view_lab.js"></script>
 </body>
+<script>
+    back=function(){
+        // console.log('1233')
+        window.location.href = '../html/list_forms.html';
+    }
+</script>
+
 
 
 </html>
