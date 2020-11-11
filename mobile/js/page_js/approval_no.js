@@ -1,5 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
-
+var code = '121';
 /**
  * 模糊查询
  * @param [
@@ -17,8 +17,7 @@ function select(){
     }
     $.ajax({
         type: "GET",
-        url:"http://bread.varsion.cn/api/approval/select?code=xxxx&data=123",
-        // url:"http://bread.varsion.cn/api/approval/select?code=" + code + "&data=" + data,
+        url:SERVER_PATH + "api/approval/select?code=" + code + "&data=" + data,
         success:function (data) {
             console.log(data);
             if(data.code === 200){
