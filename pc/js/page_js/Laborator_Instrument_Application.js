@@ -1,7 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
-
-
 /**
  * 方法作用 获取展示的总页数
  * 请求接口 api/supadmin/labequipdisplay
@@ -34,9 +32,9 @@ $.jqPaginator('#pagination2', {
     prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
     next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
     last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
-    page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+    page: '<li class="page"><a href="javascript:;"class=pagecur>{{page}}</a></li>',
     onPageChange: function (num) {
-        $.get("http://bread.varsion.cn/api/supadmin/labequipdisplay?page=" + num, function (data) {
+        $.get(SERVER_PATH + "api/supadmin/labequipdisplay?page=" + num, function (data) {
             var str = '';
             console.log(data.code)
             for (var i = 0; i < data.data.data.length; i++) {
@@ -53,7 +51,10 @@ $.jqPaginator('#pagination2', {
 
             $('#table_list').empty();
             $('#table_list').append(str);
-
+            $('.pagecur').on('click', function () {
+                $('.pagecurrent').removeClass('current');
+                $(this).addClass('current');
+            })
         })
     }
 });
@@ -96,9 +97,9 @@ function select() {
         prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
         next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
         last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
-        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        page: '<li class="page"><a href="javascript:;" class=pagecur1>{{page}}</a></li>',
         onPageChange: function (num) {
-            $.get("http://bread.varsion.cn/api/supadmin/labequipselect?form_id=" + a + "&page=" + num, function (data) {
+            $.get(SERVER_PATH + "api/supadmin/labequipselect?form_id=" + a + "&page=" + num, function (data) {
                 var str = '';
                 console.log(totalPageasd1)
 
@@ -116,7 +117,10 @@ function select() {
 
                 $('#table_list').empty();
                 $('#table_list').append(str);
-
+                $('.pagecur1').on('click', function () {
+                    $('.pagecurrent').removeClass('current');
+                    $(this).addClass('current');
+                })
             })
         }
     });
@@ -133,7 +137,7 @@ function see(a) {
     window.location.href = "from2.html?form_id=" + form_id;
 
 }
-function see3(a){
+function see3(a) {
     var form_id = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "from2.html?form_id=" + form_id+"&&"+"flag="+1;
+    window.location.href = "from2.html?form_id=" + form_id + "&&" + "flag=" + 1;
 }

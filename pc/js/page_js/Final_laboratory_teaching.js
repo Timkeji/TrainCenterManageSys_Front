@@ -1,8 +1,6 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
 
-
-
 /**
  * 方法作用 获取展示的总页数
  * 请求接口 api/supadmin/tearecorddisplay
@@ -27,7 +25,7 @@ $.ajax({
  * 请求接口 api/supadmin/tearecorddisplay
  * @author chenmiao <github.com/Yidaaa-u>
  */
-$.jqPaginator('#pagination2',{
+$.jqPaginator('#pagination2', {
     totalPages: totalPageasd,
     visiblePages: 8,
     currentPage: 1,
@@ -37,7 +35,7 @@ $.jqPaginator('#pagination2',{
     last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
     page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
     onPageChange: function (num) {
-        $.get("http://bread.varsion.cn/api/supadmin/tearecorddisplay?page=" + num, function (data) {
+        $.get(SERVER_PATH + "api/supadmin/tearecorddisplay?page=" + num, function (data) {
             var str = '';
             console.log(data.code)
             for (var i = 0; i < data.data.data.length; i++) {
@@ -52,37 +50,21 @@ $.jqPaginator('#pagination2',{
                              </tr>`
             }
 
-            let Str = ''
-             for (var i = 0; i < data.data.data.length; i++){
-                    console.log(data.data.data.length)
-                Str += `
-                         <tr class="am-text-center am-text-middle">
-                            <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
-                            <td class="am-text-center am-text-middle">${data.data.data[i].applicant_name}</td>
-                            <td class="am-text-center am-text-middle">${data.data.data[i].updated_at}</td>
-                            <td class="am-text-center am-text-middle">
-             
-                       
-                                <button type="button" class="btn-look" id="btn-look1" onclick="see(this)">查看</button>
-                                <button type="button" class="but-use" onclick="see4(this)">导出</button>
-                            </td>
-                        </tr>
-                       `;
-             }
-
             $('#table_list').empty();
             $('#table_list').append(str);
+
 
         })
     }
 });
+
 
 /**
  * 方法作用 对搜索结果分页
  * 请求接口 api/supadmin/tearecordselect
  * @author chenmiao <github.com/Yidaaa-u>
  */
-function select(){
+function select() {
 
     var a = document.getElementById("name").value;
     console.log(a);
@@ -103,7 +85,7 @@ function select(){
             console.log(data.data)
             if (result.code == 200) {
                 let Str = '';
-                for (var i = 0; i < data.data.data.length;i++){
+                for (var i = 0; i < data.data.data.length; i++) {
                     Str += `
                     <tr class="am-text-center am-text-middle">
                             <td class="am-text-center am-text-middle">${data.data.data[i].form_id}</td>
@@ -124,10 +106,10 @@ function select(){
                 //总页数
                 objNumService = data.data.total;
 
-        }
-        if(result.code == 100){
-            alert('搜索信息失败')
-        }
+            }
+            if (result.code == 100) {
+                alert('搜索信息失败')
+            }
 
 
         },
@@ -146,9 +128,9 @@ function select(){
         prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
         next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
         last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
-        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        page: '<li class="page"><a href="">{{page}}</a></li>',
         onPageChange: function (num) {
-            $.get("http://bread.varsion.cn/api/supadmin/tearecordselect?form_id=" + a + "&page=" + num, function (data) {
+            $.get(SERVER_PATH + "api/supadmin/tearecordselect?form_id=" + a + "&page=" + num, function (data) {
                 var str = '';
                 console.log(totalPageasd1)
 
@@ -166,6 +148,10 @@ function select(){
 
                 $('#table_list').empty();
                 $('#table_list').append(str);
+                $('.pagination li a').on('click', function () {
+                    alert(111)
+                    $(this).addClass('current');
+                })
 
             })
         }
@@ -177,15 +163,15 @@ function select(){
 
 function see(a) {
 
-    console.log( $(a).parent().parent().children().eq(0).text())
+    console.log($(a).parent().parent().children().eq(0).text())
     var form_id = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "inspectionrecord.html?form_id="+form_id;
+    window.location.href = "inspectionrecord.html?form_id=" + form_id;
 }
 
 
 
-function see4(a){
-    console.log( $(a).parent().parent().children().eq(0).text())
+function see4(a) {
+    console.log($(a).parent().parent().children().eq(0).text())
     var form_id = $(a).parent().parent().children().eq(0).text();
-    window.location.href = "inspectionrecord.html?form_id="+form_id+"&&"+"flag="+1;
+    window.location.href = "inspectionrecord.html?form_id=" + form_id + "&&" + "flag=" + 1;
 }

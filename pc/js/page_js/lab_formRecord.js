@@ -1,5 +1,4 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
-
 var url=location.search;
 var group;
 var flag;
@@ -23,6 +22,9 @@ flag = Request['flag']
         if(data.code == 200){
             let Str = ''
            if(data.data.length == 0){
+               Str = `
+                <input type="text"> <span>年</span>
+               `
                Str =`
                 <tr>
                     <th>序号</th>
@@ -129,19 +131,19 @@ flag = Request['flag']
                 </tr>
                    `
                }
-               for(var i ; i< 12 - data.data.length;i++){
+               for(var j = 0; j < 12 - data.data.length;j++){
                    Str +=`
                    <tr>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
-                    <td> <input type="text" readonly></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
+                    <td> <input type="text" readonly ></td>
                 </tr>
                    `
                }
@@ -201,5 +203,6 @@ flag = Request['flag']
 
 
     })
+
 
 })
